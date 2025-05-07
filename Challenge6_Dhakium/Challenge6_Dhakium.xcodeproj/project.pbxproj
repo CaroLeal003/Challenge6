@@ -252,7 +252,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Challenge6_Dhakium/Preview Content\"";
-				DEVELOPMENT_TEAM = F895W2R8B7;
+				DEVELOPMENT_TEAM = YK49Y6KQGC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Allow the app to connect to bluetooth";
@@ -283,7 +283,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Challenge6_Dhakium/Preview Content\"";
-				DEVELOPMENT_TEAM = F895W2R8B7;
+				DEVELOPMENT_TEAM = YK49Y6KQGC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Allow the app to connect to bluetooth";

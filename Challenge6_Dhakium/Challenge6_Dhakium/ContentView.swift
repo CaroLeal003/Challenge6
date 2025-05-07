@@ -13,23 +13,22 @@ struct ContentView: View {
     @State private var sliderValue: Double = 128
     @StateObject var bluetooth = BluetoothViewModel()
     
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    
+
     var body: some View {
         VStack(spacing: 20) {
             Toggle("Activate", isOn: $isOn)
                 .padding()
                 .onChange(of: isOn) { _, value in
-                    let commandToSend = value ? Int(sliderValue) : 0
-                    bluetooth.send(command: "\(commandToSend)\n")
+                    let commandToSend = value ? "Turn On\n" : "Turn Off\n"
+                    bluetooth.send(command: commandToSend)
                 }
 
-            Slider(value: $sliderValue, in: 0...255, step: 1)
+            Slider(value: $sliderValue, in: 0...255, step: 10)
                 .padding(.horizontal)
                 .onChange(of: sliderValue) { _, newValue in
-                    if isOn {
-                        bluetooth.send(command: "\(Int(newValue))\n")
-                    }
+                    let msg = "M01-\(Int(newValue))\n"
+                    bluetooth.send(command: msg)
+                    
                 }
 
 
@@ -37,11 +36,6 @@ struct ContentView: View {
                 .font(.caption)
         }
         .padding()
-        .onReceive(timer) { _ in
-            if isOn {
-                bluetooth.send(command: "\(Int(sliderValue))\n")
-            }
-        }
     }
 }
 
