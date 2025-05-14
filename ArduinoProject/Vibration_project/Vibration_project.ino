@@ -6,7 +6,7 @@
 
 SoftwareSerial BTSerial(2, 3); // RX, TX
 
-
+  
 //Mapping motors
 const int motorPin[] = {
   11, //00
