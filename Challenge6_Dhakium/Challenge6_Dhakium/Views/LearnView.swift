@@ -35,6 +35,36 @@ struct LearnView: View {
             scientificName: "E4",
             frequency: "329.63 Hz",
             color: .yellow
+        ),
+        MusicNoteLesson(
+            noteName: "Fa",
+            scientificName: "F4",
+            frequency: "349.23 Hz",
+            color: .green
+        ),
+        MusicNoteLesson(
+            noteName: "Sol",
+            scientificName: "G4",
+            frequency: "392.00 Hz",
+            color: .blue
+        ),
+        MusicNoteLesson(
+            noteName: "La",
+            scientificName: "A4",
+            frequency: "440.00 Hz",
+            color: .purple
+        ),
+        MusicNoteLesson(
+            noteName: "Si",
+            scientificName: "B4",
+            frequency: "493.88 Hz",
+            color: .pink
+        ),
+        MusicNoteLesson(
+            noteName: "Do",
+            scientificName: "C5",
+            frequency: "523.25 Hz",
+            color: .teal  // Alternativa: .cyan o .mint
         )
     ]
     
@@ -66,31 +96,30 @@ struct LearnView: View {
                 }
                 .listRowSeparatorTint(lesson.color.opacity(0.3))
             }
-            .navigationTitle("Notes")
+            .navigationTitle("Lessons")
             .listStyle(.insetGrouped)
         }
     }
 }
-
 
 struct LessonDetailView: View {
     let lesson: MusicNoteLesson
     @State private var isButtonPressed = false
     
     var body: some View {
-        VStack(spacing: 25) {
-            // Circle Principal
+        VStack(spacing: 25) { // Ridotto lo spacing
+           
+            // Cerchio principale
             Circle()
                 .fill(lesson.color)
                 .frame(width: 150, height: 150)
                 .overlay(
                     Text(lesson.noteName)
                         .font(.system(size: 40, weight: .black))
-                        .foregroundColor(.white)
                 )
                 .shadow(color: lesson.color.opacity(0.4), radius: 15)
             
-           
+            // Box informazioni
             VStack(spacing: 10) {
                 InfoRow(label: "Name", value: lesson.scientificName)
                 InfoRow(label: "Frequency", value: lesson.frequency)
@@ -102,32 +131,34 @@ struct LessonDetailView: View {
             )
             .padding(.horizontal)
             
-          
+            // Bottone
             Button(action: {
                 isButtonPressed.toggle()
-                //logica pulsante
             }) {
-                Rectangle()
+                RoundedRectangle(cornerRadius: 20)
                     .fill(lesson.color)
                     .frame(width: 200, height: 200)
                     .overlay(
                         Image(systemName: "music.note")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 40)
+                            .frame(width: 60)
                             .foregroundColor(.white)
                     )
                     .shadow(radius: 5)
-                    .scaleEffect(isButtonPressed ? 0.9 : 1.0)
-                    .animation(.spring(response: 0.3, dampingFraction: 0.5), value: isButtonPressed)
+                    .scaleEffect(isButtonPressed ? 0.95 : 1.0)
             }
             
-            Spacer()
+            Spacer() // Aggiunto secondo Spacer in basso
+            Spacer() // Extra spazio in basso
         }
+        .padding(.top, 40) // Padding aggiuntivo in alto
+        .frame(maxHeight: .infinity)
         .navigationTitle(lesson.scientificName)
         .navigationBarTitleDisplayMode(.inline)
     }
 }
+
 
 struct InfoRow: View {
     let label: String

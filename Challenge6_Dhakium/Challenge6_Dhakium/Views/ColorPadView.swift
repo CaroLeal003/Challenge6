@@ -10,60 +10,54 @@ import SwiftUI
 
 struct ColorPadView: View {
     @ObservedObject var bluetooth: BluetoothViewModel
-
-    // Lista di colori + command
     
     let buttons: [(color: Color, command: String)] = [
-            (.red, "NOTE_0"),
-            (.orange, "NOTE_1"),
-            (.yellow, "NOTE_2"),
-            (.green, "NOTE_3"),
-            (.mint, "NOTE_4"),
-            (.teal, "NOTE_5"),
-            (.cyan, "NOTE_6"),
-            (.blue, "NOTE_7"),
-            (.indigo, "NOTE_8"),
-            (.purple, "NOTE_9"),
-            (.pink, "NOTE_10"),
-            (.brown, "NOTE_11"),
-            (.gray, "NOTE_12"),
-            (.black, "NOTE_13"),
-            (.white, "NOTE_14")
+        (.red, "NOTE_Do"),
+        (.orange, "NOTE_Re"),
+        (.yellow, "NOTE_Mi"),
+        (.green, "NOTE_Fa"),
+        (.blue, "NOTE_Sol"),
+        (.purple, "NOTE_La"),
+        (.pink, "NOTE_Si"),
+        (.black, "NOTE_Do")
     ]
-
-    // Layout
+    
+    // Modificato per 2 colonne
     let columns = [
-        GridItem(.flexible()),
         GridItem(.flexible()),
         GridItem(.flexible())
     ]
-
+    
     var body: some View {
         VStack {
+            Image(.image1)
+            Spacer()
             
-            Text("Feel the music!")
-                .font(.title)
-                .padding()
-
-
-            LazyVGrid(columns: columns, spacing: 20) {
+            LazyVGrid(columns: columns, spacing: 30) {
                 ForEach(0..<buttons.count, id: \.self) { index in
                     Button(action: {
                         let command = buttons[index].command + "\n"
                         bluetooth.send(command: command)
                     }) {
-                        Rectangle()
+                        RoundedRectangle(cornerRadius: 24)
                             .fill(buttons[index].color)
-                            .frame(height: 100)
-                            .cornerRadius(12)
-                            .shadow(radius: 4)
+                            .frame(height: 125) // Altezza aumentata
+                            .aspectRatio(1, contentMode: .fit) // Mantiene quadrati
+                            .shadow(color: .black.opacity(0.3), radius: 5, x: 0, y: 3)
+                            .overlay(
+                                Text(buttons[index].command.replacingOccurrences(of: "NOTE_", with: ""))
+                                    .font(.title2.bold())
+                                    .foregroundColor(.white)
+                                    .shadow(radius: 3)
+                            )
                     }
                 }
             }
-
+            .padding(.horizontal)
+            
             Spacer()
         }
-        .padding()
+        .padding(.top)
     }
 }
 
