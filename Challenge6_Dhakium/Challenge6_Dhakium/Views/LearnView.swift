@@ -68,7 +68,12 @@ struct LearnView: View {
         )
     ]
     
+    
+    var BackgroundColor : Color {
+        Color.white
+    }
     var body: some View {
+    
         NavigationStack {
             List(lessons) { lesson in
                 NavigationLink(destination: LessonDetailView(lesson: lesson)) {
@@ -115,7 +120,8 @@ struct LessonDetailView: View {
                 .frame(width: 150, height: 150)
                 .overlay(
                     Text(lesson.noteName)
-                        .font(.system(size: 40, weight: .black))
+                        .foregroundStyle(Color.white)
+                        .font(.system(size: 40, weight: .bold))
                 )
                 .shadow(color: lesson.color.opacity(0.4), radius: 15)
             

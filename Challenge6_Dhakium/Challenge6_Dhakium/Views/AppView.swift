@@ -19,6 +19,7 @@ struct AppView: View {
 // HomeView
 struct HomeView: View {
     var body: some View {
+        
         VStack(spacing: 30) {
             Spacer()
             
@@ -60,7 +61,6 @@ struct HomeView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea()
-        .background(Color(.systemBackground))
     }
 }
 
