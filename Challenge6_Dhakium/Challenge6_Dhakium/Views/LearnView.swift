@@ -58,13 +58,13 @@ struct LearnView: View {
             noteName: "Si",
             scientificName: "B4",
             frequency: "493.88 Hz",
-            color: .pink
+            color: Color(red: 244/255, green: 180/255, blue: 190/255)
         ),
         MusicNoteLesson(
             noteName: "Do",
             scientificName: "C5",
             frequency: "523.25 Hz",
-            color: .teal  // Alternativa: .cyan o .mint
+            color: Color(red: 200/255, green: 0/255, blue: 0/255)
         )
     ]
     
