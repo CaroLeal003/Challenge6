@@ -18,8 +18,8 @@ struct ColorPadView: View {
         (.green, "NOTE_Fa"),
         (.blue, "NOTE_Sol"),
         (.purple, "NOTE_La"),
-        (.pink, "NOTE_Si"),
-        (.black, "NOTE_Do")
+        (Color(red: 244/255, green: 180/255, blue: 190/255), "NOTE_Si"),
+        (Color(red: 200/255, green: 0/255, blue: 0/255), "NOTE_Do")
     ]
     
     // Modificato per 2 colonne

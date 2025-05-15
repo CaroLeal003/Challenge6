@@ -25,7 +25,7 @@ struct HomeView: View {
             Image("Image 1")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: .infinity)
+                .frame(maxWidth: .infinity)
                 .padding()
                 
             // Bottom Play
@@ -56,7 +56,7 @@ struct HomeView: View {
             Image("Image")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: .infinity)
+                .frame(maxWidth: .infinity)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea()
