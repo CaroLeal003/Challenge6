@@ -4,7 +4,10 @@
 
 #define NUMBER_MOTORS 20
 
-SoftwareSerial BTSerial(2, 3); // RX, TX
+#define PIN_RX 3
+#define PIN_TX 2
+
+SoftwareSerial BTSerial(PIN_RX, PIN_TX); // RX, TX
 
   
 //Mapping motors
@@ -39,8 +42,11 @@ void setup() {
   BTSerial.begin(9600);   
   
   inputString.reserve(50);
-  Serial.println("🟢 Arduino ready (BT via pin 4-3)");
-
+  Serial.print("🟢 Arduino ready (BT via pin rx");
+  Serial.print(PIN_RX);
+  Serial.print(" - tx");
+  Serial.print(PIN_TX);
+  Serial.print(")");
 
 }
 
