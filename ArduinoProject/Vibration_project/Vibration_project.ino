@@ -4,7 +4,7 @@
 
 #define NUMBER_MOTORS 20
 
-#define PIN_RX 3
+#define PIN_RX 4
 #define PIN_TX 2
 
 SoftwareSerial BTSerial(PIN_RX, PIN_TX); // RX, TX
@@ -12,12 +12,12 @@ SoftwareSerial BTSerial(PIN_RX, PIN_TX); // RX, TX
   
 //Mapping motors
 const int motorPin[] = {
-  11, //00
-  12, //01
-  13, //02
-  14, //03
-  22, //04
-  33, //05
+  3, //00
+  5, //01
+  6, //02
+  9, //03
+  10, //04
+  11, //05
   34, //06
   35, //07
   37, //08
@@ -78,7 +78,7 @@ void processMessage(String inputString) {
         valuesMotors[index] = value;
         analogWrite(motorPin[index], valuesMotors[index]);
         printMotor(index,valuesMotors[index]);
-        if(index - lastIndex  > 1 ) turnOffMotors( lastIndex +1,  index);
+        //if(index - lastIndex  > 1 ) turnOffMotors( lastIndex +1,  index);
       }
       lastIndex = index;
     }
@@ -101,6 +101,7 @@ void manageMotorsWithBT(){
   
   while ( BTSerial.available() > 0) {
     char inChar = (char)BTSerial.read();
+    Serial.print(inChar);
     if (inChar == '\n') {
       
       if ( inputString.endsWith("#") ) {
@@ -116,7 +117,7 @@ void manageMotorsWithBT(){
         
         inputString = "";
       } else {
-        
+        finalMessage = inputString;
         inputString = "";  // Reset
         messageInProgress = false;
         stringComplete = true;
