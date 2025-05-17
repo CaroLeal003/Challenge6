@@ -29,8 +29,8 @@ struct ColorPadView: View {
         (Color(red: 200/255, green: 0/255, blue: 0/255), "NOTE_Do")
     ]
     
-    // Indici dei pulsanti da disattivare (basato sul comando)
-    let disabledNotes: [String] = ["NOTE_Fa", "NOTE_La", "NOTE_Si", "NOTE_Do"]
+    // index of the buttons ot disable (based on the command)
+    let disabledNotes: [String] = [ "NOTE_La", "NOTE_Si", "NOTE_Do"]
     
     let columns = [
         GridItem(.flexible()),
