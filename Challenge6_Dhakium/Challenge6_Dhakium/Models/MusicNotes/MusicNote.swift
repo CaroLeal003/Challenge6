@@ -15,4 +15,7 @@ struct MusicNote: Identifiable {
     let frequency: String
     let color: Color
     let frequencyWave: Double
+    let command: String
+    let listMotorValuesOn: String
+    let listMotorValuesOff: String
 }

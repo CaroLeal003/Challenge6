@@ -9,25 +9,6 @@
 import SwiftUI
 struct ColorPadView: View {
     @ObservedObject var bluetooth: BluetoothViewModel
-    @State private var listMotorValues : [String] = [
-        "01100", "02255", "03200", "04200",
-        "05200", "06200", "07200", "08200",
-    ]
-    @State private var listMotorValuesOff : [String] = [
-        "01000", "02000", "03000", "04000",
-        "05000", "06000", "07000", "08000",
-    ]
-    
-    let buttons: [(color: Color, command: String)] = [
-        (.red, "NOTE_do"),
-        (.orange, "NOTE_Re"),
-        (.yellow, "NOTE_Mi"),
-        (.green, "NOTE_Fa"),
-        (.blue, "NOTE_Sol"),
-        (.purple, "NOTE_La"),
-        (Color(red: 244/255, green: 180/255, blue: 190/255), "NOTE_Si"),
-        (Color(red: 200/255, green: 0/255, blue: 0/255), "NOTE_Do")
-    ]
     
     // index of the buttons ot disable (based on the command)
     let disabledNotes: [String] = [ "NOTE_La", "NOTE_Si", "NOTE_Do"]
@@ -48,18 +29,19 @@ struct ColorPadView: View {
             Image(.image1)
             Spacer()
             
+            let allNotes = MusicNote.AllMusicNotes
+            
             LazyVGrid(columns: columns, spacing: 30) {
-                ForEach(0..<buttons.count, id: \.self) { index in
-                    let note = buttons[index].command
-                    let isDisabled = disabledNotes.contains(note)
+                ForEach(0..<allNotes.count, id: \.self) { index in
+                    let isDisabled = disabledNotes.contains(allNotes[index].command)
 
                     RoundedRectangle(cornerRadius: 24)
-                        .fill(isDisabled ? Color.gray : buttons[index].color)
+                        .fill(isDisabled ? Color.gray : allNotes[index].color)
                         .frame(height: 125)
                         .aspectRatio(1, contentMode: .fit)
                         .shadow(color: .black.opacity(0.3), radius: 5, x: 0, y: 3)
                         .overlay(
-                            Text(note.replacingOccurrences(of: "NOTE_", with: ""))
+                            Text(allNotes[index].noteName)
                                 .font(.title2.bold())
                                 .foregroundColor(.white)
                                 .shadow(radius: 3)
@@ -67,13 +49,15 @@ struct ColorPadView: View {
                         .gesture(
                             LongPressGesture(minimumDuration: 0)
                                 .onEnded { _ in
-                                    buttonClicked(valueToSend: listMotorValues[index], disabled: isDisabled)
+                                    buttonClicked(valueToSend: allNotes[index].listMotorValuesOn, disabled: isDisabled)
+                                    print(allNotes[index].listMotorValuesOn)
                                 }
                         )
                         .simultaneousGesture(
                             DragGesture(minimumDistance: 0)
                                 .onEnded { _ in
-                                    buttonClicked(valueToSend: listMotorValuesOff[index], disabled: isDisabled)
+                                    buttonClicked(valueToSend: allNotes[index].listMotorValuesOff, disabled: isDisabled)
+                                    print(allNotes[index].listMotorValuesOff)
                                 }
                         )
                         .opacity(isDisabled ? 0.5 : 1.0)
