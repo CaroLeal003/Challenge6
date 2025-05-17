@@ -11,7 +11,8 @@ import SwiftUI
 struct Challenge6_DhakiumApp: App {
     var body: some Scene {
         WindowGroup {
-            AppView()
+            AppView().preferredColorScheme(.light)
         }
+        
     }
 }
