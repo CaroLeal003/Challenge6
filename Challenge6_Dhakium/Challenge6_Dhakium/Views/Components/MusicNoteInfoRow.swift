@@ -32,7 +32,7 @@ struct MusicNoteInfoRow: View {
                 .font(.system(.callout, design: .monospaced))
                 .foregroundColor(.secondary)
         }
-        .padding(.vertical, 8)
+        .padding(.vertical, 5)
     }
 }
 

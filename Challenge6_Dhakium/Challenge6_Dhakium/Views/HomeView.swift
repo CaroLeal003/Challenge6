@@ -39,7 +39,7 @@ struct HomeView: View {
                     .padding()
 
             }
-            .padding(.top)
+    
             Image("Image")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
