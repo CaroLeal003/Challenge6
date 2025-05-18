@@ -9,9 +9,16 @@ import SwiftUI
 
 struct LessonDetailView: View {
     
+    @ObservedObject var bluetooth: BluetoothViewModel
     let lesson: MusicNote
     @State private var isButtonPressed = false
     @State var strength: Double = 0
+    
+    func buttonClicked(valueToSend : String, disabled: Bool){
+        if !disabled {
+            bluetooth.send(command: valueToSend + "\n")
+        }
+    }
     
     var body: some View {
         VStack(spacing: 25) {
@@ -50,18 +57,30 @@ struct LessonDetailView: View {
                 .shadow(radius: 5)
                 .scaleEffect(isButtonPressed ? 0.95 : 1.0)
                 .gesture(
+                    LongPressGesture(minimumDuration: 0)
+                        .onEnded { _ in
+                            buttonClicked(valueToSend: lesson.listMotorValuesOn, disabled: false)
+                            print(lesson.listMotorValuesOn)
+                        }
+                )
+                .simultaneousGesture(
                     DragGesture(minimumDistance: 0)
                         .onChanged { _ in
                             if !isButtonPressed {
                                 isButtonPressed = true
                                 strength = 40.0
+                                //buttonClicked(valueToSend: lesson.listMotorValuesOn, disabled: false)
                             }
                         }
                         .onEnded { _ in
                             isButtonPressed = false
                             strength = 0.0
+                            buttonClicked(valueToSend: lesson.listMotorValuesOff, disabled: false)
+                            print(lesson.listMotorValuesOff)
                         }
                 )
+
+
             
             Spacer()
             
@@ -77,5 +96,5 @@ struct LessonDetailView: View {
 }
 
 #Preview {
-    LessonDetailView(lesson: MusicNote.NoteForPreview)
+    LessonDetailView(bluetooth: BluetoothViewModel(), lesson: MusicNote.NoteForPreview)
 }

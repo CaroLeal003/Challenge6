@@ -17,7 +17,7 @@ struct LearnView: View {
             List {
                 Section(header: Text("Lesson")) {
                     ForEach(lessons) { lesson in
-                        NavigationLink(destination: LessonDetailView(lesson: lesson)) {
+                        NavigationLink(destination: LessonDetailView(bluetooth: BluetoothViewModel(), lesson: lesson)) {
                             MusicNoteInfoRow(lesson: lesson)
                         }
                         .listRowSeparatorTint(lesson.color.opacity(0.3))

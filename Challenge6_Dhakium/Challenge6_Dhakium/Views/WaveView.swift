@@ -30,5 +30,5 @@ struct WaveView: View {
 }
 
 #Preview {
-    LessonDetailView(lesson: MusicNote.NoteForPreview)
+    LessonDetailView(bluetooth: BluetoothViewModel(), lesson: MusicNote.NoteForPreview)
 }
