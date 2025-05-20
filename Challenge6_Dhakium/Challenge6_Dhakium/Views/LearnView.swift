@@ -8,29 +8,21 @@
 import SwiftUI
 
 struct LearnView: View {
-    let lessons: [MusicNote] = MusicNote.AllMusicNotes
-    let games: [RythmGame] = RythmGame.AllRythmGames
+    
+    @ObservedObject var bluetooth: BluetoothViewModel
+    let levels: [Level] = Level.allLevels
     
     var body: some View {
         NavigationStack {
             
             List {
-                Section(header: Text("Lesson")) {
-                    ForEach(lessons) { lesson in
-                        NavigationLink(destination: LessonDetailView(bluetooth: BluetoothViewModel(), lesson: lesson)) {
-                            MusicNoteInfoRow(lesson: lesson)
-                        }
-                        .listRowSeparatorTint(lesson.color.opacity(0.3))
+                ForEach(levels) { level in
+                    NavigationLink(destination: LessonDetailView(bluetooth: bluetooth, lesson: level.learn)) {
+                        MusicNoteInfoRow(lesson: level.learn)
                     }
-                }
-                
-                
-                Section(header: Text("Gaming")) {
-                    ForEach(games) { game in
-                        NavigationLink(destination: RythmGameView(game: game)) {
-                            RythmGameRow(game: game)
-                        }
-                        .listRowSeparatorTint(game.allBars[0].color.opacity(0.6))
+                    .listRowSeparatorTint(level.learn.color.opacity(0.8))
+                    NavigationLink(destination: RythmGameView(game: level.game, bluetooth: bluetooth)) {
+                        RythmGameRow(game: level.game)
                     }
                 }
             }
@@ -40,5 +32,5 @@ struct LearnView: View {
 }
 
 #Preview {
-    LearnView()
+    LearnView(bluetooth: BluetoothViewModel())
 }

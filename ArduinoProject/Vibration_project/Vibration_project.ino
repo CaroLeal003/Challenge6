@@ -1,5 +1,5 @@
 
-#include <Adafruit_PWMServoDriver.h>
+//#include <Adafruit_PWMServoDriver.h>
 #include "BTManager.h"
 
 #define SERVOMIN 150
@@ -35,8 +35,3 @@ void turnOffMotors(int startIndexMotor, int endIndexMotor){
     if( valuesMotors[indexMotor] > 0) analogWrite(motorPin[indexMotor], 0);
   }
 }
-
-
-
-
-

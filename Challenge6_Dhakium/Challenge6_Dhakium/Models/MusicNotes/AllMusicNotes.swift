@@ -17,7 +17,7 @@ extension MusicNote {
             color: .red,
             frequencyWave: 26.163,
             command: "NOTE_do",
-            listMotorValuesOn: "01100",
+            listMotorValuesOn: "01130",
             listMotorValuesOff: "01000"
         ),
         MusicNote(
@@ -27,7 +27,7 @@ extension MusicNote {
             color: .orange,
             frequencyWave: 29.366,
             command: "NOTE_Re",
-            listMotorValuesOn: "02255",
+            listMotorValuesOn: "02146",
             listMotorValuesOff: "02000"
         ),
         MusicNote(
@@ -37,7 +37,7 @@ extension MusicNote {
             color: .yellow,
             frequencyWave: 32.9,
             command: "NOTE_Mi",
-            listMotorValuesOn: "03200",
+            listMotorValuesOn: "03164",
             listMotorValuesOff: "03000"
         ),
         MusicNote(
@@ -47,7 +47,7 @@ extension MusicNote {
             color: .green,
             frequencyWave: 34.923,
             command: "NOTE_Fa",
-            listMotorValuesOn: "04200",
+            listMotorValuesOn: "04174",
             listMotorValuesOff: "04000"
         ),
         MusicNote(
@@ -57,7 +57,7 @@ extension MusicNote {
             color: .blue,
             frequencyWave: 39.200,
             command: "NOTE_Sol",
-            listMotorValuesOn: "05200",
+            listMotorValuesOn: "05196",
             listMotorValuesOff: "05000"
         ),
         MusicNote(
@@ -67,7 +67,7 @@ extension MusicNote {
             color: .purple,
             frequencyWave: 44.000,
             command: "NOTE_La",
-            listMotorValuesOn: "06200",
+            listMotorValuesOn: "06220",
             listMotorValuesOff: "06000"
         ),
         MusicNote(
@@ -77,7 +77,7 @@ extension MusicNote {
             color: Color(red: 244/255, green: 180/255, blue: 190/255),
             frequencyWave: 49.388,
             command: "NOTE_Si",
-            listMotorValuesOn: "07200",
+            listMotorValuesOn: "07246",
             listMotorValuesOff: "07000"
         ),
         MusicNote(
@@ -87,7 +87,7 @@ extension MusicNote {
             color: Color(red: 200/255, green: 0/255, blue: 0/255),
             frequencyWave: 52.325,
             command: "NOTE_Do",
-            listMotorValuesOn: "08200",
+            listMotorValuesOn: "08255",
             listMotorValuesOff: "08000"
         )
     ]

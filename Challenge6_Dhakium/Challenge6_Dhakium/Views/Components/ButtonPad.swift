@@ -11,7 +11,6 @@ struct ButtonPad: View {
     @ObservedObject var bluetooth: BluetoothViewModel
     var disabledNotes: [String]
     
-    // 👇 Closures que se ejecutarán desde RythmGameView
     var onNotePressed: ((String) -> Void)?
     var onNoteReleased: ((String) -> Void)?
     
@@ -49,14 +48,16 @@ struct ButtonPad: View {
                         DragGesture(minimumDistance: 0)
                             .onChanged { _ in
                                 if !isDisabled {
-                                    buttonClicked(valueToSend: note.listMotorValuesOn, disabled: false)
+                                    buttonClicked(valueToSend: note.listMotorValuesOn, disabled: isDisabled)
                                     onNotePressed?(note.noteName)
+                                    print(note.listMotorValuesOn)
                                 }
                             }
                             .onEnded { _ in
                                 if !isDisabled {
-                                    buttonClicked(valueToSend: note.listMotorValuesOff, disabled: false)
+                                    buttonClicked(valueToSend: note.listMotorValuesOff, disabled: isDisabled)
                                     onNoteReleased?(note.noteName)
+                                    print(note.listMotorValuesOff)
                                 }
                             }
                     )

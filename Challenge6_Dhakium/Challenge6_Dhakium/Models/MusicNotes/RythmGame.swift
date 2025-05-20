@@ -13,5 +13,6 @@ struct RythmGame: Identifiable {
     let level: Int
     let allBars: [NoteBarConfig]
     let disabledNotes: [String]
+    let lastNoteValueOff: String
 }
 

@@ -13,6 +13,7 @@ struct LessonDetailView: View {
     let lesson: MusicNote
     @State private var isButtonPressed = false
     @State var strength: Double = 0
+    @State private var strengthTimer: Timer?
     
     func buttonClicked(valueToSend : String, disabled: Bool){
         if !disabled {
@@ -59,8 +60,7 @@ struct LessonDetailView: View {
                 .gesture(
                     LongPressGesture(minimumDuration: 0)
                         .onEnded { _ in
-                            buttonClicked(valueToSend: lesson.listMotorValuesOn, disabled: false)
-                            print(lesson.listMotorValuesOn)
+                            bluetooth.send(command: lesson.listMotorValuesOn + "\n")
                         }
                 )
                 .simultaneousGesture(
@@ -68,22 +68,18 @@ struct LessonDetailView: View {
                         .onChanged { _ in
                             if !isButtonPressed {
                                 isButtonPressed = true
-                                strength = 40.0
-                                //buttonClicked(valueToSend: lesson.listMotorValuesOn, disabled: false)
+                                animateStrength(to: 40.0)
                             }
                         }
                         .onEnded { _ in
                             isButtonPressed = false
-                            strength = 0.0
-                            buttonClicked(valueToSend: lesson.listMotorValuesOff, disabled: false)
-                            print(lesson.listMotorValuesOff)
+                            animateStrength(to: 00.0)
+                            bluetooth.send(command: lesson.listMotorValuesOff + "\n")
                         }
                 )
-
-
             
             Spacer()
-            
+
             WaveView(waveColor: lesson.color, frequency: lesson.frequencyWave, strength: $strength)
 
             Spacer()
@@ -93,6 +89,27 @@ struct LessonDetailView: View {
         .navigationTitle(lesson.scientificName)
         .navigationBarTitleDisplayMode(.inline)
     }
+    
+    func animateStrength(to target: CGFloat) {
+        strengthTimer?.invalidate()
+
+        let step: CGFloat = 2.0
+        let interval = 0.01
+
+        strengthTimer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { timer in
+            if strength < target {
+                strength = min(strength + step, target)
+            } else if strength > target {
+                strength = max(strength - step, target)
+            }
+
+            if strength == target {
+                timer.invalidate()
+            }
+        }
+        print("strength: \(strength)")
+    }
+
 }
 
 #Preview {

@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    @ObservedObject var bluetoothVM: BluetoothViewModel = .init()
+    
     var body: some View {
         VStack(spacing: 30) {
             Spacer()
@@ -18,7 +21,7 @@ struct HomeView: View {
                 .frame(maxWidth: .infinity)
                 .padding()
                 
-            NavigationLink(destination: ColorPadView(bluetooth: BluetoothViewModel())) {
+            NavigationLink(destination: ColorPadView(bluetooth: bluetoothVM)) {
                 Text("PLAY")
                     .font(.largeTitle.weight(.bold))
                     .foregroundColor(.white)
@@ -28,7 +31,7 @@ struct HomeView: View {
                     .cornerRadius(15)
             }
             
-            NavigationLink(destination: LearnView()) {
+            NavigationLink(destination: LearnView(bluetooth: bluetoothVM)) {
                 Text("LEARN")
                     .font(.largeTitle.weight(.bold))
                     .foregroundColor(.white)
