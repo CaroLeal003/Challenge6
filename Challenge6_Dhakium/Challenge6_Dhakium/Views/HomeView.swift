@@ -11,6 +11,8 @@ struct HomeView: View {
     
     @ObservedObject var bluetoothVM: BluetoothViewModel = .init()
     let shopURL = URL(string: "https://www.tuo-shop.com")!
+    @State private var moveUp = false
+    @State private var showButtons = false
     
     var body: some View {
         NavigationStack {
@@ -22,15 +24,13 @@ struct HomeView: View {
                     .edgesIgnoringSafeArea(.all)
                 
                 VStack {
-                    Spacer()
-                    Spacer()
-                    
                 
                     Image("Haptihy") 
                         .resizable()
                         .scaledToFit()
-                        .frame(maxWidth: 500)
-                        .padding(.bottom, 20)
+                        .frame(width: moveUp ? 500 : 800)
+                        .offset(y: moveUp ? 20 : 120)
+                        .animation(.easeInOut(duration: 1), value: moveUp)
                     
                     Spacer()
             
@@ -71,10 +71,22 @@ struct HomeView: View {
                         }
                     }
                     .padding(.bottom, 10)
+                    .opacity(showButtons ? 1 : 0)
+                    .animation(.easeIn(duration: 1), value: showButtons)
+                }
+                .onAppear {
+                    // Esperamos 1 segundo y luego cambiamos el estado
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        moveUp = true
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                            showButtons = true
+                        }
+                    }
                 }
             }
-            .navigationViewStyle(StackNavigationViewStyle())
-            .statusBar(hidden: true)
+            //.navigationViewStyle(StackNavigationViewStyle())
+            //.statusBar(hidden: true)
         }
     }
 }
