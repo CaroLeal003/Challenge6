@@ -107,7 +107,6 @@ struct LessonDetailView: View {
                 timer.invalidate()
             }
         }
-        print("strength: \(strength)")
     }
 
 }

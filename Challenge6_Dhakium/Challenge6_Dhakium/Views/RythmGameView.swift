@@ -51,7 +51,7 @@ struct RythmGameView: View {
                 .frame(height: 60)
             }
             
-            ButtonPad(
+            /*ButtonPad(
                 bluetooth: bluetooth,
                 disabledNotes: game.disabledNotes,
                 onNotePressed: { name in
@@ -63,7 +63,7 @@ struct RythmGameView: View {
                     activeButtonName = nil
                 }
             )
-            .padding()
+            .padding()*/
         }
         .alert("You won!", isPresented: $didWin) {
             Button("Amazing", role: .cancel) { dismiss() }
