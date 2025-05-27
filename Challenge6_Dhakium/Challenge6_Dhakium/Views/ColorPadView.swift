@@ -26,7 +26,7 @@ struct ColorPadView: View {
     
     var body: some View {
         VStack {
-            Image(.image1)
+            Image(.haptihy)
             Spacer()
             
             let allNotes = MusicNote.AllMusicNotes
