@@ -10,10 +10,10 @@ import SwiftUI
 struct LessonDetailView: View {
     
     @ObservedObject var bluetooth: BluetoothViewModel
+    @Environment(\.dismiss) var dismiss
+    @Binding var isInGame: Bool
     let lesson: MusicNote
-    @State private var isButtonPressed = false
-    @State var strength: Double = 0
-    @State private var strengthTimer: Timer?
+    let game: RythmGame
     
     func buttonClicked(valueToSend : String, disabled: Bool){
         if !disabled {
@@ -22,113 +22,60 @@ struct LessonDetailView: View {
     }
     
     var body: some View {
-        ZStack {
-            
-            Image("BackgroundLessonView")
-                .resizable()
-                .scaledToFill()
-                .ignoresSafeArea()
-            
-            VStack {
-                Spacer()
-                Spacer()
+        NavigationStack {
+            ZStack {
+                Image("BackgroundLessonView")
+                    .resizable()
+                    .scaledToFill()
                 
-                Image("BackgroundNote")
+                RoundedRectangle(cornerRadius: 45)
+                    .fill(Color.white)
+                    .frame(width: 770, height: 360)
+                
+                NoteExplanation(lesson: lesson, bluetooth: bluetooth)
+                    .frame(width: 430)
+                    .offset(x: -100)
+                
+                Image(lesson.imageName)
                     .resizable()
                     .scaledToFit()
-                    .frame(maxWidth: .infinity)
-                    .overlay(
-                       
-                        ZStack(alignment: .bottomLeading) {
-                            Color.clear
-                            VStack(alignment: .leading) {
-                                                           Image("DoImage")
-                                                               .resizable()
-                                                               .scaledToFit()
-                                                               .frame(width: 100)
-                                                               .padding(.leading, 40)
-                                                               .padding(.top, 20)
-                                                           
-                                                           Spacer()
-                                                       }
-                                                       .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-                            Image("BackgroundYellow")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(maxWidth: 500)
-                                .offset(x: 20, y: -20)
-                                .overlay(
-                                    VStack {
-                                        RoundedRectangle(cornerRadius: 20)
-                                            .fill(lesson.color)
-                                            .frame(width: 100, height: 100)
-                                            .overlay(
-                                                Image(systemName: "music.note")
-                                                    .resizable()
-                                                    .scaledToFit()
-                                                    .frame(width: 30)
-                                                    .foregroundColor(.white)
-                                            )
-                                            .shadow(radius: 5)
-                                            .scaleEffect(isButtonPressed ? 0.95 : 1.0)
-                                            .gesture(
-                                                LongPressGesture(minimumDuration: 0)
-                                                    .onEnded { _ in
-                                                        bluetooth.send(command: lesson.listMotorValuesOn + "\n")
-                                                    }
-                                            )
-                                            .simultaneousGesture(
-                                                DragGesture(minimumDistance: 0)
-                                                    .onChanged { _ in
-                                                        if !isButtonPressed {
-                                                            isButtonPressed = true
-                                                            animateStrength(to: 40.0)
-                                                        }
-                                                    }
-                                                    .onEnded { _ in
-                                                        isButtonPressed = false
-                                                        animateStrength(to: 00.0)
-                                                        bluetooth.send(command: lesson.listMotorValuesOff + "\n")
-                                                    }
-                                            )
-                                        
-                                        WaveView(waveColor: lesson.color, frequency: lesson.frequencyWave, strength: $strength)
-                                            .padding(.top, 5)
-                                            .frame(width: 300)
-                                    }
-                                    .padding(.vertical)
-                                )
-                        }
-                    )
+                    .frame(width: 130)
+                    .offset(x: -250, y: -120)
                 
-                Spacer()
+                Button(action: {
+                    dismiss()
+                }, label: {
+                    Image("close_button_image")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 60)
+                })
+                .offset(x: 330, y: -130)
+                
+                NavigationLink(destination: {
+                    RythmGameView(game: game, bluetooth: bluetooth)
+                        .onAppear {
+                            isInGame = true
+                        }
+                        .onDisappear {
+                            isInGame = false
+                        }
+                }, label: {
+                    Image("practice_button_image")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 160)
+                })
+
+                .offset(x: 250, y: 120)
+                
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-        }
-        .navigationTitle(lesson.scientificName)
-        .navigationBarTitleDisplayMode(.inline)
-    }
-    
-    func animateStrength(to target: CGFloat) {
-        strengthTimer?.invalidate()
-        
-        let step: CGFloat = 2.0
-        let interval = 0.01
-        
-        strengthTimer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { timer in
-            if strength < target {
-                strength = min(strength + step, target)
-            } else if strength > target {
-                strength = max(strength - step, target)
-            }
-            
-            if strength == target {
-                timer.invalidate()
-            }
-        }
+            .ignoresSafeArea()
+            .navigationBarBackButtonHidden(true)
+        }        
     }
 }
 
 #Preview {
-    LessonDetailView(bluetooth: BluetoothViewModel(), lesson: MusicNote.NoteForPreview)
+    LessonDetailView(bluetooth: BluetoothViewModel(), isInGame: .constant(false), lesson: MusicNote.NoteForPreview, game: RythmGame.RythmGameForPreview)
 }

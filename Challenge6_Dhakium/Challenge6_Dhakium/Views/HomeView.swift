@@ -10,9 +10,10 @@ import SwiftUI
 struct HomeView: View {
     
     @ObservedObject var bluetoothVM: BluetoothViewModel = .init()
-    let shopURL = URL(string: "https://www.tuo-shop.com")!
+    let shopURL = URL(string: "https://open.spotify.com/track/4PTG3Z6ehGkBFwjybzWkR8?si=fed79a04714445e4")!
     @State private var moveUp = false
     @State private var showButtons = false
+    @State var showLearn: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -47,7 +48,9 @@ struct HomeView: View {
                             }
                         }
                         
-                        NavigationLink(destination: LearnView(bluetooth: bluetoothVM)) {
+                        Button(action: {
+                            showLearn = true
+                        }, label: {
                             VStack {
                                 Image("learn_button_image")
                                     .resizable()
@@ -55,7 +58,10 @@ struct HomeView: View {
                                     .frame(width: 180, height: 170)
                                     .shadow(radius:4)
                             }
-                        }
+                        })
+                        .fullScreenCover(isPresented: $showLearn, content: {
+                            LearnView(bluetooth: bluetoothVM)
+                        })
                         
                         Button(action: {
                             UIApplication.shared.open(shopURL)
@@ -84,8 +90,6 @@ struct HomeView: View {
                     }
                 }
             }
-            //.navigationViewStyle(StackNavigationViewStyle())
-            //.statusBar(hidden: true)
         }
     }
 }

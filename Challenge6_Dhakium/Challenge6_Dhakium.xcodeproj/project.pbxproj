@@ -10,9 +10,22 @@
 		2588E8602DCA1ABE00C39E77 /* Challenge6_Dhakium.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Challenge6_Dhakium.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		256B8C392DE7507300726AE8 /* Exceptions for "Challenge6_Dhakium" folder in "Challenge6_Dhakium" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Challenge6-Dhakium-Info.plist",
+			);
+			target = 2588E85F2DCA1ABE00C39E77 /* Challenge6_Dhakium */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		2588E8622DCA1ABE00C39E77 /* Challenge6_Dhakium */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				256B8C392DE7507300726AE8 /* Exceptions for "Challenge6_Dhakium" folder in "Challenge6_Dhakium" target */,
+			);
 			path = Challenge6_Dhakium;
 			sourceTree = "<group>";
 		};
@@ -252,9 +265,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Challenge6_Dhakium/Preview Content\"";
-				DEVELOPMENT_TEAM = MTCCDD4RMJ;
+				DEVELOPMENT_TEAM = F895W2R8B7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Challenge6-Dhakium-Info.plist";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Allow the app to connect to bluetooth";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Allow the app to connect to bluetooth";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -285,9 +299,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Challenge6_Dhakium/Preview Content\"";
-				DEVELOPMENT_TEAM = MTCCDD4RMJ;
+				DEVELOPMENT_TEAM = F895W2R8B7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Challenge6-Dhakium-Info.plist";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Allow the app to connect to bluetooth";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Allow the app to connect to bluetooth";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

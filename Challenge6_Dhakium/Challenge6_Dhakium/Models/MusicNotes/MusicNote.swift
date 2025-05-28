@@ -20,4 +20,5 @@ struct MusicNote: Identifiable {
     let listMotorValuesOff: String
     let imagePressed: String
     let imageUnpressed: String
+    let imageName: String
 }

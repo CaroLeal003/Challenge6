@@ -11,8 +11,8 @@ struct WaveView: View {
     
     @State private var phase = 0.0
     
-    @State var waveColor: Color = Color.black
-    @State var frequency: Double = 0
+    let waveColor: Color
+    let frequency: Double
     @Binding var strength: Double
     
     var body: some View {
@@ -30,5 +30,5 @@ struct WaveView: View {
 }
 
 #Preview {
-    LessonDetailView(bluetooth: BluetoothViewModel(), lesson: MusicNote.NoteForPreview)
+    LessonDetailView(bluetooth: BluetoothViewModel(), isInGame: .constant(false), lesson: MusicNote.NoteForPreview, game: RythmGame.RythmGameForPreview)
 }

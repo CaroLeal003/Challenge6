@@ -29,7 +29,8 @@ extension Level {
                     listMotorValuesOn: "01130",
                     listMotorValuesOff: "01000",
                     imagePressed: "doPressed",
-                    imageUnpressed: "doUnpressed"
+                    imageUnpressed: "doUnpressed",
+                    imageName: "DoImage"
                 ),
             game:
                 RythmGame(
@@ -55,7 +56,8 @@ extension Level {
                     listMotorValuesOn: "02146",
                     listMotorValuesOff: "02000",
                     imagePressed: "RePressed",
-                    imageUnpressed: "ReUnpressed"
+                    imageUnpressed: "ReUnpressed",
+                    imageName: "ReImage"
                 ), game:
                 RythmGame(
                     level: 2,
@@ -82,7 +84,8 @@ extension Level {
                     listMotorValuesOn: "03164",
                     listMotorValuesOff: "03000",
                     imagePressed: "MiPressed",
-                    imageUnpressed: "MiUnpressed"
+                    imageUnpressed: "MiUnpressed",
+                    imageName: "MiImage"
                 ), game:
                 RythmGame(
                     level: 3,
@@ -111,7 +114,8 @@ extension Level {
                     listMotorValuesOn: "04174",
                     listMotorValuesOff: "04000",
                     imagePressed: "FaPressed",
-                    imageUnpressed: "FaUnpressed"
+                    imageUnpressed: "FaUnpressed",
+                    imageName: "FaImage"
                 ), game:
                 RythmGame(
                     level: 4,
@@ -141,7 +145,8 @@ extension Level {
                     listMotorValuesOn: "05196",
                     listMotorValuesOff: "05000",
                     imagePressed: "SolPressed",
-                    imageUnpressed: "SolUnpressed"
+                    imageUnpressed: "SolUnpressed",
+                    imageName: "SolImage"
                 ), game:
                 RythmGame(
                     level: 5,
@@ -169,7 +174,8 @@ extension Level {
                     listMotorValuesOn: "06220",
                     listMotorValuesOff: "06000",
                     imagePressed: "LaPressed",
-                    imageUnpressed: "LaUnpressed"
+                    imageUnpressed: "LaUnpressed",
+                    imageName: "LaImage"
                 ), game:
                 RythmGame(
                     level: 6,
@@ -198,7 +204,8 @@ extension Level {
                     listMotorValuesOn: "07246",
                     listMotorValuesOff: "07000",
                     imagePressed: "SiPressed",
-                    imageUnpressed: "SiUnpressed"
+                    imageUnpressed: "SiUnpressed",
+                    imageName: "SiImage"
                 )
               , game:
                 RythmGame(
@@ -228,7 +235,8 @@ extension Level {
                     listMotorValuesOn: "08255",
                     listMotorValuesOff: "08000",
                     imagePressed: "DooPressed",
-                    imageUnpressed: "DooUnpressed"
+                    imageUnpressed: "DooUnpressed",
+                    imageName: "DooImage"
                 ), game:
                 RythmGame(
                     level: 8,

@@ -105,6 +105,17 @@ struct RythmGameView: View {
                 .alert("You won!", isPresented: $didWin) {
                     Button("Amazing", role: .cancel) { dismiss() }
                 }
+                
+                Button(action: {
+                    print("backward")
+                    dismiss()
+                }, label: {
+                    Image("backward_arrow_image")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 40)
+                })
+                .offset(x: -400, y: -140)
             }
         }
         .navigationBarBackButtonHidden(true)

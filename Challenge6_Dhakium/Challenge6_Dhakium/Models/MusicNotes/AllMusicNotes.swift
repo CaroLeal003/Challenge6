@@ -20,7 +20,8 @@ extension MusicNote {
             listMotorValuesOn: "01130",
             listMotorValuesOff: "01000",
             imagePressed: "doPressed",
-            imageUnpressed: "doUnpressed"
+            imageUnpressed: "doUnpressed",
+            imageName: "DoImage"
         ),
         MusicNote(
             noteName: "Re",
@@ -32,7 +33,8 @@ extension MusicNote {
             listMotorValuesOn: "02146",
             listMotorValuesOff: "02000",
             imagePressed: "RePressed",
-            imageUnpressed: "ReUnpressed"
+            imageUnpressed: "ReUnpressed",
+            imageName: "ReImage"
         ),
         MusicNote(
             noteName: "Mi",
@@ -44,7 +46,8 @@ extension MusicNote {
             listMotorValuesOn: "03164",
             listMotorValuesOff: "03000",
             imagePressed: "MiPressed",
-            imageUnpressed: "MiUnpressed"
+            imageUnpressed: "MiUnpressed",
+            imageName: "MiImage"
         ),
         MusicNote(
             noteName: "Fa",
@@ -56,7 +59,8 @@ extension MusicNote {
             listMotorValuesOn: "04174",
             listMotorValuesOff: "04000",
             imagePressed: "FaPressed",
-            imageUnpressed: "FaUnpressed"
+            imageUnpressed: "FaUnpressed",
+            imageName: "FaImage"
         ),
         MusicNote(
             noteName: "Sol",
@@ -68,7 +72,8 @@ extension MusicNote {
             listMotorValuesOn: "05196",
             listMotorValuesOff: "05000",
             imagePressed: "SolPressed",
-            imageUnpressed: "SolUnpressed"
+            imageUnpressed: "SolUnpressed",
+            imageName: "SolImage"
         ),
         MusicNote(
             noteName: "La",
@@ -80,7 +85,8 @@ extension MusicNote {
             listMotorValuesOn: "06220",
             listMotorValuesOff: "06000",
             imagePressed: "LaPressed",
-            imageUnpressed: "LaUnpressed"
+            imageUnpressed: "LaUnpressed",
+            imageName: "LaImage"
         ),
         MusicNote(
             noteName: "Si",
@@ -92,7 +98,8 @@ extension MusicNote {
             listMotorValuesOn: "07246",
             listMotorValuesOff: "07000",
             imagePressed: "SiPressed",
-            imageUnpressed: "SiUnpressed"
+            imageUnpressed: "SiUnpressed",
+            imageName: "SiImage"
         ),
         MusicNote(
             noteName: "Do",
@@ -104,7 +111,8 @@ extension MusicNote {
             listMotorValuesOn: "08255",
             listMotorValuesOff: "08000",
             imagePressed: "DooPressed",
-            imageUnpressed: "DooUnpressed"
+            imageUnpressed: "DooUnpressed",
+            imageName: "DooImage"
         )
     ]
     
@@ -118,7 +126,8 @@ extension MusicNote {
         command: "NOTE_Do",
         listMotorValuesOn: "01100",
         listMotorValuesOff: "01000",
-        imagePressed: "DooPressed",
-        imageUnpressed: "DooUnpressed"
+        imagePressed: "DoPressed",
+        imageUnpressed: "DoUnpressed",
+        imageName: "DoImage"
     )
 }

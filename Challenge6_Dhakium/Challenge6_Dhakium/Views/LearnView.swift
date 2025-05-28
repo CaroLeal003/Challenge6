@@ -13,23 +13,39 @@ struct LearnView: View {
     
     @ObservedObject var bluetooth: BluetoothViewModel
     let levels: [Level] = Level.allLevels
+    @State var counter: Int = 0
+    @State private var isInGame: Bool = false
+
     
     var body: some View {
-        NavigationStack {
+        ZStack {
+            LessonDetailView(bluetooth: bluetooth, isInGame: $isInGame, lesson: levels[counter].learn, game: levels[counter].game)
             
-            List {
-                ForEach(levels) { level in
-                    NavigationLink(destination: LessonDetailView(bluetooth: bluetooth, lesson: level.learn)) {
-                        MusicNoteInfoRow(lesson: level.learn)
-                    }
-                    .listRowSeparatorTint(level.learn.color.opacity(0.8))
-                    NavigationLink(destination: RythmGameView(game: level.game, bluetooth: bluetooth)) {
-                        RythmGameRow(game: level.game)
-                    }
-                }
+            HStack {
+                Button(action: {
+                    counter -= 1
+                }, label: {
+                    Image("backward_arrow_image")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 40)
+                })
+                .opacity(counter == 0 ? 0 : 1)
+                
+                Spacer()
+                
+                Button(action: {
+                    counter += 1
+                }, label: {
+                    Image("forward_arrow_image")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 40)
+                })
+                .opacity(counter == levels.count - 1 ? 0 : 1)
             }
-            .navigationTitle("Learning")
-            .navigationBarBackButtonHidden(true)
+            .frame(width: 750)
+            .opacity(isInGame ? 0 : 1)
         }
     }
 }
