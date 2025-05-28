@@ -22,93 +22,111 @@ struct LessonDetailView: View {
     }
     
     var body: some View {
-        VStack(spacing: 25) {
+        ZStack {
             
-            Circle()
-                .fill(lesson.color)
-                .frame(width: 150, height: 150)
-                .overlay(
-                    Text(lesson.noteName)
-                        .foregroundStyle(Color.white)
-                        .font(.system(size: 40, weight: .bold))
-                )
-                .shadow(color: lesson.color.opacity(0.4), radius: 15)
+            Image("BackgroundLessonView")
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea()
             
-            VStack(spacing: 10) {
-                MusicNoteInfoBox(label: "Name", value: lesson.scientificName)
-                MusicNoteInfoBox(label: "Frequency", value: lesson.frequency)
+            VStack {
+                Spacer()
+                Spacer()
+                
+                Image("BackgroundNote")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(maxWidth: .infinity)
+                    .overlay(
+                       
+                        ZStack(alignment: .bottomLeading) {
+                            Color.clear
+                            VStack(alignment: .leading) {
+                                                           Image("DoImage")
+                                                               .resizable()
+                                                               .scaledToFit()
+                                                               .frame(width: 100)
+                                                               .padding(.leading, 40)
+                                                               .padding(.top, 20)
+                                                           
+                                                           Spacer()
+                                                       }
+                                                       .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                            Image("BackgroundYellow")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(maxWidth: 500)
+                                .offset(x: 20, y: -20)
+                                .overlay(
+                                    VStack {
+                                        RoundedRectangle(cornerRadius: 20)
+                                            .fill(lesson.color)
+                                            .frame(width: 100, height: 100)
+                                            .overlay(
+                                                Image(systemName: "music.note")
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .frame(width: 30)
+                                                    .foregroundColor(.white)
+                                            )
+                                            .shadow(radius: 5)
+                                            .scaleEffect(isButtonPressed ? 0.95 : 1.0)
+                                            .gesture(
+                                                LongPressGesture(minimumDuration: 0)
+                                                    .onEnded { _ in
+                                                        bluetooth.send(command: lesson.listMotorValuesOn + "\n")
+                                                    }
+                                            )
+                                            .simultaneousGesture(
+                                                DragGesture(minimumDistance: 0)
+                                                    .onChanged { _ in
+                                                        if !isButtonPressed {
+                                                            isButtonPressed = true
+                                                            animateStrength(to: 40.0)
+                                                        }
+                                                    }
+                                                    .onEnded { _ in
+                                                        isButtonPressed = false
+                                                        animateStrength(to: 00.0)
+                                                        bluetooth.send(command: lesson.listMotorValuesOff + "\n")
+                                                    }
+                                            )
+                                        
+                                        WaveView(waveColor: lesson.color, frequency: lesson.frequencyWave, strength: $strength)
+                                            .padding(.top, 5)
+                                            .frame(width: 300)
+                                    }
+                                    .padding(.vertical)
+                                )
+                        }
+                    )
+                
+                Spacer()
             }
-            .padding()
-            .background(
-                RoundedRectangle(cornerRadius: 15)
-                    .fill(Color(.secondarySystemBackground))
-            )
-            .padding(.horizontal)
-            
-            RoundedRectangle(cornerRadius: 20)
-                .fill(lesson.color)
-                .frame(width: 200, height: 200)
-                .overlay(
-                    Image(systemName: "music.note")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 60)
-                        .foregroundColor(.white)
-                )
-                .shadow(radius: 5)
-                .scaleEffect(isButtonPressed ? 0.95 : 1.0)
-                .gesture(
-                    LongPressGesture(minimumDuration: 0)
-                        .onEnded { _ in
-                            bluetooth.send(command: lesson.listMotorValuesOn + "\n")
-                        }
-                )
-                .simultaneousGesture(
-                    DragGesture(minimumDistance: 0)
-                        .onChanged { _ in
-                            if !isButtonPressed {
-                                isButtonPressed = true
-                                animateStrength(to: 40.0)
-                            }
-                        }
-                        .onEnded { _ in
-                            isButtonPressed = false
-                            animateStrength(to: 00.0)
-                            bluetooth.send(command: lesson.listMotorValuesOff + "\n")
-                        }
-                )
-            
-            Spacer()
-
-            WaveView(waveColor: lesson.color, frequency: lesson.frequencyWave, strength: $strength)
-
-            Spacer()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        .padding(.top, 40)
-        .frame(maxHeight: .infinity)
         .navigationTitle(lesson.scientificName)
         .navigationBarTitleDisplayMode(.inline)
     }
     
     func animateStrength(to target: CGFloat) {
         strengthTimer?.invalidate()
-
+        
         let step: CGFloat = 2.0
         let interval = 0.01
-
+        
         strengthTimer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { timer in
             if strength < target {
                 strength = min(strength + step, target)
             } else if strength > target {
                 strength = max(strength - step, target)
             }
-
+            
             if strength == target {
                 timer.invalidate()
             }
         }
     }
-
 }
 
 #Preview {
