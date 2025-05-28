@@ -107,7 +107,6 @@ struct RythmGameView: View {
                 }
                 
                 Button(action: {
-                    print("backward")
                     dismiss()
                 }, label: {
                     Image("backward_arrow_image")

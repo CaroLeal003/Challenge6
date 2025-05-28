@@ -57,10 +57,7 @@ struct ButtonPad: View {
                                     activeNoteName = note.noteName
                                     buttonClicked(valueToSend: note.listMotorValuesOn, disabled: isDisabled)
                                     onNotePressed?(note.noteName)
-                                    //print(note.listMotorValuesOn)
-                                    print(activeNoteName!)
-                                    print(note.noteName)
-                                    print(note.imagePressed)
+                                    print(note.listMotorValuesOn)
                                     
                                 }
                             }
@@ -70,9 +67,7 @@ struct ButtonPad: View {
                                 activeNoteName = nil
                                 buttonClicked(valueToSend: note.listMotorValuesOff, disabled: isDisabled)
                                 onNoteReleased?(note.noteName)
-                                //print(note.listMotorValuesOff)
-                                print(note.noteName)
-                                print(note.imageUnpressed)
+                                print(note.listMotorValuesOff)
                             }
                         }
                 )
