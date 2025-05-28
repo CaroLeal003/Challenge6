@@ -29,7 +29,7 @@ struct HomeView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: moveUp ? 500 : 800)
-                        .offset(y: moveUp ? 20 : 120)
+                        .offset(y: moveUp ? 40 : 120)
                         .animation(.easeInOut(duration: 1), value: moveUp)
                     
                     Spacer()
@@ -70,7 +70,6 @@ struct HomeView: View {
                             }
                         }
                     }
-                    .padding(.bottom, 10)
                     .opacity(showButtons ? 1 : 0)
                     .animation(.easeIn(duration: 1), value: showButtons)
                 }

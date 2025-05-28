@@ -26,20 +26,21 @@ extension Level {
                     color: .red,
                     frequencyWave: 26.163,
                     command: "NOTE_do",
-                    listMotorValuesOn: "01100",
-                    listMotorValuesOff: "01000"
+                    listMotorValuesOn: "01130",
+                    listMotorValuesOff: "01000",
+                    imagePressed: "doPressed",
+                    imageUnpressed: "doUnpressed"
                 ),
             game:
                 RythmGame(
                     level: 1,
                     allBars: [
-                        NoteBarConfig(duration: 50, color: .red, name: "do"),
-                        NoteBarConfig(duration: 70, color: .red, name: "do"),
-                        NoteBarConfig(duration: 50, color: .red, name: "do"),
-                        NoteBarConfig(duration: 70, color: .red, name: "do")
+                        NoteBarConfig(duration: 70, color: .red, name: "do", verticalOffset: -73),
+                        NoteBarConfig(duration: 90, color: .red, name: "do", verticalOffset: -73),
+                        NoteBarConfig(duration: 70, color: .red, name: "do", verticalOffset: -73),
+                        NoteBarConfig(duration: 90, color: .red, name: "do", verticalOffset: -73)
                     ],
-                    disabledNotes: ["NOTE_Re", "NOTE_Mi", "NOTE_Fa", "NOTE_Sol", "NOTE_La", "NOTE_Si", "NOTE_Do"]
-                    ,
+                    disabledNotes: ["NOTE_Re", "NOTE_Mi", "NOTE_Fa", "NOTE_Sol", "NOTE_La", "NOTE_Si", "NOTE_Do"],
                     lastNoteValueOff: "01000"
                 )
         ),
@@ -51,21 +52,22 @@ extension Level {
                     color: .orange,
                     frequencyWave: 29.366,
                     command: "NOTE_Re",
-                    listMotorValuesOn: "02255",
-                    listMotorValuesOff: "02000"
+                    listMotorValuesOn: "02146",
+                    listMotorValuesOff: "02000",
+                    imagePressed: "RePressed",
+                    imageUnpressed: "ReUnpressed"
                 ), game:
                 RythmGame(
                     level: 2,
                     allBars: [
-                        NoteBarConfig(duration: 80, color: .orange, name: "Re"),
-                        NoteBarConfig(duration: 70, color: .red, name: "do"),
-                        NoteBarConfig(duration: 30, color: .orange, name: "Re"),
-                        NoteBarConfig(duration: 30, color: .orange, name: "Re"),
-                        NoteBarConfig(duration: 50, color: .red, name: "do"),
-                        
+                        NoteBarConfig(duration: 80, color: .orange, name: "Re", verticalOffset: 5),
+                        NoteBarConfig(duration: 90, color: .red, name: "do", verticalOffset: 0),
+                        NoteBarConfig(duration:  50, color: .orange, name: "Re", verticalOffset: 5),
+                        NoteBarConfig(duration:  50, color: .orange, name: "Re", verticalOffset: 5),
+                        NoteBarConfig(duration: 70, color: .red, name: "do", verticalOffset: 0),
+
                     ],
-                    disabledNotes: ["NOTE_Mi", "NOTE_Fa", "NOTE_Sol", "NOTE_La", "NOTE_Si", "NOTE_Do"]
-                    ,
+                    disabledNotes: ["NOTE_Mi", "NOTE_Fa", "NOTE_Sol", "NOTE_La", "NOTE_Si", "NOTE_Do"],
                     lastNoteValueOff: "01000"
                 )
              ),
@@ -77,20 +79,22 @@ extension Level {
                     color: .yellow,
                     frequencyWave: 32.9,
                     command: "NOTE_Mi",
-                    listMotorValuesOn: "03200",
-                    listMotorValuesOff: "03000"
+                    listMotorValuesOn: "03164",
+                    listMotorValuesOff: "03000",
+                    imagePressed: "MiPressed",
+                    imageUnpressed: "MiUnpressed"
                 ), game:
                 RythmGame(
                     level: 3,
                     allBars: [
-                        NoteBarConfig(duration: 50, color: .yellow, name: "Mi"),
-                        NoteBarConfig(duration: 50, color: .orange, name: "Re"),
-                        NoteBarConfig(duration: 50, color: .red, name: "do"),
-                        NoteBarConfig(duration: 50, color: .orange, name: "Re"),
-                        NoteBarConfig(duration: 70, color: .yellow, name: "Mi"),
-                        NoteBarConfig(duration: 70, color: .yellow, name: "Mi"),
-                        NoteBarConfig(duration: 70, color: .yellow, name: "Mi"),
-                        
+                        NoteBarConfig(duration: 70, color: .yellow, name: "Mi", verticalOffset: 10),
+                        NoteBarConfig(duration: 70, color: .orange, name: "Re", verticalOffset: 5),
+                        NoteBarConfig(duration: 70, color: .red, name: "do", verticalOffset: 0),
+                        NoteBarConfig(duration: 70, color: .orange, name: "Re", verticalOffset: 10),
+                        NoteBarConfig(duration: 90, color: .yellow, name: "Mi", verticalOffset: 10),
+                        NoteBarConfig(duration: 90, color: .yellow, name: "Mi", verticalOffset: 10),
+                        NoteBarConfig(duration: 90, color: .yellow, name: "Mi", verticalOffset: 10),
+
                     ],
                     disabledNotes: ["NOTE_Fa", "NOTE_Sol", "NOTE_La", "NOTE_Si", "NOTE_Do"],
                     lastNoteValueOff: "03000"
@@ -104,21 +108,23 @@ extension Level {
                     color: .green,
                     frequencyWave: 34.923,
                     command: "NOTE_Fa",
-                    listMotorValuesOn: "04200",
-                    listMotorValuesOff: "04000"
+                    listMotorValuesOn: "04174",
+                    listMotorValuesOff: "04000",
+                    imagePressed: "FaPressed",
+                    imageUnpressed: "FaUnpressed"
                 ), game:
                 RythmGame(
                     level: 4,
                     allBars: [
-                        NoteBarConfig(duration: 80, color: .green, name: "Fa"),
-                        NoteBarConfig(duration: 80, color: .red, name: "do"),
-                        NoteBarConfig(duration: 80, color: .green, name: "Fa"),
-                        NoteBarConfig(duration: 40, color: .red, name: "do"),
-                        NoteBarConfig(duration: 40, color: .orange, name: "Re"),
-                        NoteBarConfig(duration: 40, color: .yellow, name: "Mi"),
-                        NoteBarConfig(duration: 80, color: .green, name: "Fa"),
+                        NoteBarConfig(duration: 80, color: .green, name: "Fa", verticalOffset: 10),
+                        NoteBarConfig(duration: 80, color: .red, name: "do", verticalOffset: 0),
+                        NoteBarConfig(duration: 80, color: .green, name: "Fa", verticalOffset: 10),
+                        NoteBarConfig(duration: 60, color: .red, name: "do", verticalOffset: 0),
+                        NoteBarConfig(duration: 60, color: .orange, name: "Re", verticalOffset: 5),
+                        NoteBarConfig(duration: 60, color: .yellow, name: "Mi", verticalOffset: 10),
+                        NoteBarConfig(duration: 80, color: .green, name: "Fa", verticalOffset: 10),
                         
-                        
+
                     ],
                     disabledNotes: ["NOTE_Sol", "NOTE_La", "NOTE_Si", "NOTE_Do"],
                     lastNoteValueOff: "04000"
@@ -132,19 +138,21 @@ extension Level {
                     color: .blue,
                     frequencyWave: 39.200,
                     command: "NOTE_Sol",
-                    listMotorValuesOn: "05200",
-                    listMotorValuesOff: "05000"
+                    listMotorValuesOn: "05196",
+                    listMotorValuesOff: "05000",
+                    imagePressed: "SolPressed",
+                    imageUnpressed: "SolUnpressed"
                 ), game:
                 RythmGame(
                     level: 5,
                     allBars: [
-                        NoteBarConfig(duration: 50, color: .blue, name: "Sol"),
-                        NoteBarConfig(duration: 50, color: .green, name: "Fa"),
-                        NoteBarConfig(duration: 50, color: .yellow, name: "Mi"),
-                        NoteBarConfig(duration: 100, color: .blue, name: "Sol"),
-                        NoteBarConfig(duration: 100, color: .yellow, name: "Mi"),
-                        NoteBarConfig(duration: 100, color: .blue, name: "Sol"),
-                        
+                        NoteBarConfig(duration: 70, color: .blue, name: "Sol", verticalOffset: 10),
+                        NoteBarConfig(duration: 70, color: .green, name: "Fa", verticalOffset: 10),
+                        NoteBarConfig(duration: 70, color: .yellow, name: "Mi", verticalOffset: 10),
+                        NoteBarConfig(duration: 100, color: .blue, name: "Sol", verticalOffset: 10),
+                        NoteBarConfig(duration: 100, color: .yellow, name: "Mi", verticalOffset: 10),
+                        NoteBarConfig(duration: 100, color: .blue, name: "Sol", verticalOffset: 10),
+
                     ],
                     disabledNotes: ["NOTE_La", "NOTE_Si", "NOTE_Do"],
                     lastNoteValueOff: "05000"
@@ -158,20 +166,22 @@ extension Level {
                     color: .purple,
                     frequencyWave: 44.000,
                     command: "NOTE_La",
-                    listMotorValuesOn: "06200",
-                    listMotorValuesOff: "06000"
+                    listMotorValuesOn: "06220",
+                    listMotorValuesOff: "06000",
+                    imagePressed: "LaPressed",
+                    imageUnpressed: "LaUnpressed"
                 ), game:
                 RythmGame(
                     level: 6,
                     allBars: [
-                        NoteBarConfig(duration: 40, color: .purple, name: "La"),
-                        NoteBarConfig(duration: 40, color: .blue, name: "Sol"),
-                        NoteBarConfig(duration: 40, color: .green, name: "Fa"),
-                        NoteBarConfig(duration: 40, color: .orange, name: "Re"),
-                        NoteBarConfig(duration: 80, color: .blue, name: "Sol"),
-                        NoteBarConfig(duration: 100, color: .purple, name: "La"),
-                        NoteBarConfig(duration: 100, color: .purple, name: "La"),
-                        
+                        NoteBarConfig(duration: 60, color: .purple, name: "La", verticalOffset: 10),
+                        NoteBarConfig(duration: 60, color: .blue, name: "Sol", verticalOffset: 10),
+                        NoteBarConfig(duration: 60, color: .green, name: "Fa", verticalOffset: 10),
+                        NoteBarConfig(duration: 60, color: .orange, name: "Re", verticalOffset: 5),
+                        NoteBarConfig(duration: 80, color: .blue, name: "Sol", verticalOffset: 10),
+                        NoteBarConfig(duration: 100, color: .purple, name: "La", verticalOffset: 10),
+                        NoteBarConfig(duration: 100, color: .purple, name: "La", verticalOffset: 10),
+
                     ],
                     disabledNotes: ["NOTE_Si", "NOTE_Do"],
                     lastNoteValueOff: "06000"
@@ -185,21 +195,23 @@ extension Level {
                     color: Color(red: 244/255, green: 180/255, blue: 190/255),
                     frequencyWave: 49.388,
                     command: "NOTE_Si",
-                    listMotorValuesOn: "07200",
-                    listMotorValuesOff: "07000"
+                    listMotorValuesOn: "07246",
+                    listMotorValuesOff: "07000",
+                    imagePressed: "SiPressed",
+                    imageUnpressed: "SiUnpressed"
                 )
               , game:
                 RythmGame(
                     level: 7,
                     allBars: [
-                        NoteBarConfig(duration: 40, color: Color(red: 244/255, green: 180/255, blue: 190/255), name: "Si"),
-                        NoteBarConfig(duration: 40, color: .blue, name: "Sol"),
-                        NoteBarConfig(duration: 40, color: .yellow, name: "Mi"),
-                        NoteBarConfig(duration: 40, color: .yellow, name: "Mi"),
-                        NoteBarConfig(duration: 80, color: Color(red: 244/255, green: 180/255, blue: 190/255), name: "Si"),
-                        NoteBarConfig(duration: 80, color: .blue, name: "Sol"),
-                        NoteBarConfig(duration: 100, color: Color(red: 244/255, green: 180/255, blue: 190/255), name: "Si"),
-                        
+                        NoteBarConfig(duration: 60, color: Color(red: 244/255, green: 180/255, blue: 190/255), name: "Si", verticalOffset: 10),
+                        NoteBarConfig(duration: 60, color: .blue, name: "Sol", verticalOffset: 10),
+                        NoteBarConfig(duration: 60, color: .yellow, name: "Mi", verticalOffset: 10),
+                        NoteBarConfig(duration: 60, color: .yellow, name: "Mi", verticalOffset: 10),
+                        NoteBarConfig(duration: 80, color: Color(red: 244/255, green: 180/255, blue: 190/255), name: "Si", verticalOffset: 10),
+                        NoteBarConfig(duration: 80, color: .blue, name: "Sol", verticalOffset: 10),
+                        NoteBarConfig(duration: 100, color: Color(red: 244/255, green: 180/255, blue: 190/255), name: "Si", verticalOffset: 10),
+
                     ],
                     disabledNotes: ["NOTE_Do"],
                     lastNoteValueOff: "07000"
@@ -213,20 +225,22 @@ extension Level {
                     color: Color(red: 200/255, green: 0/255, blue: 0/255),
                     frequencyWave: 52.325,
                     command: "NOTE_Do",
-                    listMotorValuesOn: "08200",
-                    listMotorValuesOff: "08000"
+                    listMotorValuesOn: "08255",
+                    listMotorValuesOff: "08000",
+                    imagePressed: "DooPressed",
+                    imageUnpressed: "DooUnpressed"
                 ), game:
                 RythmGame(
                     level: 8,
                     allBars: [
-                        NoteBarConfig(duration: 70, color: Color(red: 200/255, green: 0/255, blue: 0/255), name: "Do"),
-                        NoteBarConfig(duration: 70, color: Color(red: 244/255, green: 180/255, blue: 190/255), name: "Si"),
-                        NoteBarConfig(duration: 70, color: .purple, name: "La"),
-                        NoteBarConfig(duration: 70, color: .blue, name: "Sol"),
-                        NoteBarConfig(duration: 70, color: .green, name: "Fa"),
-                        NoteBarConfig(duration: 70, color: .yellow, name: "Mi"),
-                        NoteBarConfig(duration: 70, color: .orange, name: "Re"),
-                        NoteBarConfig(duration: 70, color: .red, name: "do"),
+                        NoteBarConfig(duration: 90, color: Color(red: 200/255, green: 0/255, blue: 0/255), name: "Do", verticalOffset: 12),
+                        NoteBarConfig(duration: 90, color: Color(red: 244/255, green: 180/255, blue: 190/255), name: "Si", verticalOffset: 0),
+                        NoteBarConfig(duration: 90, color: .purple, name: "La", verticalOffset: -13),
+                        NoteBarConfig(duration: 90, color: .blue, name: "Sol", verticalOffset: -25),
+                        NoteBarConfig(duration: 90, color: .green, name: "Fa", verticalOffset: -38),
+                        NoteBarConfig(duration: 90, color: .yellow, name: "Mi", verticalOffset: -49),
+                        NoteBarConfig(duration: 90, color: .orange, name: "Re", verticalOffset: -61),
+                        NoteBarConfig(duration: 90, color: .red, name: "do", verticalOffset: -73),
                     ],
                     disabledNotes: [""],
                     lastNoteValueOff: "01000"

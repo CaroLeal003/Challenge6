@@ -14,12 +14,12 @@ struct RythmGameView: View {
     
     let game: RythmGame
     
-    @State private var progresses: [Double]
-    @State private var currentBarIndex = 0
-    @State private var didWin = false
-    @State private var timer: Timer? = nil
-    @State private var activeButtonName: String? = nil
-    @State private var scrollOffset: CGFloat = 0
+    @State var progresses: [Double]
+    @State var currentBarIndex = 0
+    @State var didWin = false
+    @State var timer: Timer? = nil
+    @State var activeButtonName: String? = nil
+    @State var scrollOffset: CGFloat = 0
     
     init(game: RythmGame, bluetooth: BluetoothViewModel) {
         self.game = game
@@ -28,104 +28,86 @@ struct RythmGameView: View {
     }
     
     var body: some View {
-        VStack {
-            HStack {
+        NavigationStack {
+            ZStack {
+                Color.colorWater
+                    .ignoresSafeArea()
+                    .opacity(0.61)
                 
-                Rectangle()
-                    .fill(Color.black)
-                    .frame(width: 20, height: 60)
-                    .padding(.leading)
+                RoundedRectangle(cornerRadius: 24)
+                    .fill(Color.colorLightYellow)
+                    .frame(width: 745, height: 264)
                 
-                RythmGameBars(scrollOffset: $scrollOffset) {
-                    HStack(spacing: 16) {
-                        ForEach(Array(game.allBars.enumerated()), id: \.1.id) { index, bar in
-                            ZStack {
-                                progressBar(progress: progresses[index], color: bar.color, totalWidth: bar.duration)
-
-                                //Text(bar.name).font(.caption)
-                            }
-                        }
+                RoundedRectangle(cornerRadius: 15)
+                    .fill(Color.white)
+                    .frame(width: 709, height: 173)
+                
+                VStack(spacing: 20) {
+                    Rectangle()
+                        .fill(Color.gray)
+                        .frame(width: 709, height: 5)
+                        .opacity(0.3)
+                    
+                    Rectangle()
+                        .fill(Color.gray)
+                        .frame(width: 709, height: 5)
+                        .opacity(0.3)
+                    
+                    Rectangle()
+                        .fill(Color.gray)
+                        .frame(width: 709, height: 5)
+                        .opacity(0.3)
+                    
+                    Rectangle()
+                        .fill(Color.gray)
+                        .frame(width: 709, height: 5)
+                        .opacity(0.3)
+                    
+                    Rectangle()
+                        .fill(Color.gray)
+                        .frame(width: 709, height: 5)
+                        .opacity(0.3)
+                }
+                
+                VStack {
+                    Spacer()
+                    
+                    HStack {
+                        
+                        RythmGameBarsView(game: game, progresses: progresses, scrollOffset: $scrollOffset)
+                            .frame(height: 173)
+                            .padding(.leading, 20)
                     }
-                    .padding(.horizontal)
+                    
+                    
+                    ZStack {
+                        Image("RythmGameRectangle")
+                            .resizable()
+                            .ignoresSafeArea()
+                            .frame(height: 122)
+                        
+                        ButtonPad(
+                            bluetooth: bluetooth,
+                            disabledNotes: game.disabledNotes,
+                            onNotePressed: { name in
+                                activeButtonName = name
+                                startFilling()
+                            },
+                            onNoteReleased: { _ in
+                                stopFilling()
+                                activeButtonName = nil
+                            }
+                        )
+                        .frame(height: 122)
+                    }
                 }
-                .frame(height: 60)
-            }
-            
-            /*ButtonPad(
-                bluetooth: bluetooth,
-                disabledNotes: game.disabledNotes,
-                onNotePressed: { name in
-                    activeButtonName = name
-                    startFilling()
-                },
-                onNoteReleased: { _ in
-                    stopFilling()
-                    activeButtonName = nil
-                }
-            )
-            .padding()*/
-        }
-        .alert("You won!", isPresented: $didWin) {
-            Button("Amazing", role: .cancel) { dismiss() }
-        }
-    }
-    
-    func progressBar(progress: Double, color: Color, totalWidth: Double) -> some View {
-        let barWidth = CGFloat(progress) * totalWidth
-        let isActive = progress > 0 && progress < 1.0
-
-        return ZStack(alignment: .leading) {
-            RoundedRectangle(cornerRadius: 10)
-                .fill(color.opacity(0.3))
-                .frame(width: totalWidth, height: 30)
-
-            RoundedRectangle(cornerRadius: 10)
-                .fill(color)
-                .frame(width: barWidth, height: 30)
-
-            if isActive {
-                Rectangle()
-                    .fill(color.opacity(0.5))
-                    .frame(width: 10, height: 35)
-                    .shadow(color: color, radius: 10)
-                    .offset(x: barWidth - 10, y: 0)
-            }
-        }
-    }
-    
-    func startFilling() {
-        guard timer == nil,
-              currentBarIndex < game.allBars.count,
-              let buttonName = activeButtonName,
-              buttonName == game.allBars[currentBarIndex].name else {
-            return
-        }
-        
-        timer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { _ in
-            let increment = 0.05 * (100 / game.allBars[currentBarIndex].duration)
-            progresses[currentBarIndex] += increment
-            
-            let barWidth = game.allBars[currentBarIndex].duration + 16
-            let scrollIncrement = increment * barWidth * 0.7
-            scrollOffset += scrollIncrement
-
-            if progresses[currentBarIndex] >= 1.0 {
-                progresses[currentBarIndex] = 1.0
-                currentBarIndex += 1
-                stopFilling()
-                
-                if currentBarIndex >= game.allBars.count {
-                    didWin = true
-                    stopFilling()
-                    bluetooth.send(command: game.lastNoteValueOff + "\n")
+                .padding(.top, 120)
+                .alert("You won!", isPresented: $didWin) {
+                    Button("Amazing", role: .cancel) { dismiss() }
                 }
             }
         }
-    }
-    
-    func stopFilling() {
-        timer?.invalidate()
-        timer = nil
+        .navigationBarBackButtonHidden(true)
     }
 }
 

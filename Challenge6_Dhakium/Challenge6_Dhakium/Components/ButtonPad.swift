@@ -15,7 +15,6 @@ struct ButtonPad: View {
     var onNoteReleased: ((String) -> Void)?
     
     let columns = [
-        GridItem(.flexible()),
         GridItem(.flexible())
     ]
     
@@ -25,46 +24,61 @@ struct ButtonPad: View {
         }
     }
     
+    @State private var activeNoteName: String? = nil
+    
     var body: some View {
         let allNotes = MusicNote.AllMusicNotes
         
-        LazyVGrid(columns: columns, spacing: 30) {
+        LazyHGrid(rows: columns, spacing: 10) {
             ForEach(0..<allNotes.count, id: \.self) { index in
                 let note = allNotes[index]
                 let isDisabled = disabledNotes.contains(note.command)
+                let isActive = activeNoteName == note.noteName
                 
-                RoundedRectangle(cornerRadius: 24)
-                    .fill(isDisabled ? Color.gray : note.color)
-                    .frame(height: 125)
-                    .aspectRatio(1, contentMode: .fit)
-                    .shadow(color: .black.opacity(0.3), radius: 5, x: 0, y: 3)
-                    .overlay(
-                        Text(note.noteName)
-                            .font(.title2.bold())
-                            .foregroundColor(.white)
-                            .shadow(radius: 3)
-                    )
-                    .gesture(
-                        DragGesture(minimumDistance: 0)
-                            .onChanged { _ in
-                                if !isDisabled {
+                ZStack {
+                    Image(isActive ? note.imagePressed : note.imageUnpressed)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 85, height: 104)
+                    
+                    if isDisabled {
+                        Image("DisabledNote")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 85, height: 104)
+                    }
+                }
+                
+                .gesture(
+                    DragGesture(minimumDistance: 0)
+                        .onChanged { _ in
+                            if !isDisabled {
+                                if activeNoteName != note.noteName {
+                                    activeNoteName = note.noteName
                                     buttonClicked(valueToSend: note.listMotorValuesOn, disabled: isDisabled)
                                     onNotePressed?(note.noteName)
-                                    print(note.listMotorValuesOn)
+                                    //print(note.listMotorValuesOn)
+                                    print(activeNoteName!)
+                                    print(note.noteName)
+                                    print(note.imagePressed)
+                                    
                                 }
                             }
-                            .onEnded { _ in
-                                if !isDisabled {
-                                    buttonClicked(valueToSend: note.listMotorValuesOff, disabled: isDisabled)
-                                    onNoteReleased?(note.noteName)
-                                    print(note.listMotorValuesOff)
-                                }
+                        }
+                        .onEnded { _ in
+                            if !isDisabled {
+                                activeNoteName = nil
+                                buttonClicked(valueToSend: note.listMotorValuesOff, disabled: isDisabled)
+                                onNoteReleased?(note.noteName)
+                                //print(note.listMotorValuesOff)
+                                print(note.noteName)
+                                print(note.imageUnpressed)
                             }
-                    )
-                    .opacity(isDisabled ? 0.5 : 1.0)
+                        }
+                )
+                .opacity(isDisabled ? 0.5 : 1.0)
             }
         }
-        .padding(.horizontal)
     }
 }
 

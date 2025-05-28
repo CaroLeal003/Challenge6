@@ -27,6 +27,7 @@ struct LearnView: View {
                 }
             }
             .navigationTitle("Learning")
+            .navigationBarBackButtonHidden(true)
         }
     }
 }

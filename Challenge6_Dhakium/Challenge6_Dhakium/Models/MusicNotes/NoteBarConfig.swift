@@ -13,4 +13,5 @@ struct NoteBarConfig: Identifiable {
     let duration: Double
     let color: Color
     let name: String
+    let verticalOffset: CGFloat
 }

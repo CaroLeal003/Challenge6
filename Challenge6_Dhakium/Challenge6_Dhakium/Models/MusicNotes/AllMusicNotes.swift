@@ -18,7 +18,9 @@ extension MusicNote {
             frequencyWave: 26.163,
             command: "NOTE_do",
             listMotorValuesOn: "01130",
-            listMotorValuesOff: "01000"
+            listMotorValuesOff: "01000",
+            imagePressed: "doPressed",
+            imageUnpressed: "doUnpressed"
         ),
         MusicNote(
             noteName: "Re",
@@ -28,7 +30,9 @@ extension MusicNote {
             frequencyWave: 29.366,
             command: "NOTE_Re",
             listMotorValuesOn: "02146",
-            listMotorValuesOff: "02000"
+            listMotorValuesOff: "02000",
+            imagePressed: "RePressed",
+            imageUnpressed: "ReUnpressed"
         ),
         MusicNote(
             noteName: "Mi",
@@ -38,7 +42,9 @@ extension MusicNote {
             frequencyWave: 32.9,
             command: "NOTE_Mi",
             listMotorValuesOn: "03164",
-            listMotorValuesOff: "03000"
+            listMotorValuesOff: "03000",
+            imagePressed: "MiPressed",
+            imageUnpressed: "MiUnpressed"
         ),
         MusicNote(
             noteName: "Fa",
@@ -48,7 +54,9 @@ extension MusicNote {
             frequencyWave: 34.923,
             command: "NOTE_Fa",
             listMotorValuesOn: "04174",
-            listMotorValuesOff: "04000"
+            listMotorValuesOff: "04000",
+            imagePressed: "FaPressed",
+            imageUnpressed: "FaUnpressed"
         ),
         MusicNote(
             noteName: "Sol",
@@ -58,7 +66,9 @@ extension MusicNote {
             frequencyWave: 39.200,
             command: "NOTE_Sol",
             listMotorValuesOn: "05196",
-            listMotorValuesOff: "05000"
+            listMotorValuesOff: "05000",
+            imagePressed: "SolPressed",
+            imageUnpressed: "SolUnpressed"
         ),
         MusicNote(
             noteName: "La",
@@ -68,7 +78,9 @@ extension MusicNote {
             frequencyWave: 44.000,
             command: "NOTE_La",
             listMotorValuesOn: "06220",
-            listMotorValuesOff: "06000"
+            listMotorValuesOff: "06000",
+            imagePressed: "LaPressed",
+            imageUnpressed: "LaUnpressed"
         ),
         MusicNote(
             noteName: "Si",
@@ -78,7 +90,9 @@ extension MusicNote {
             frequencyWave: 49.388,
             command: "NOTE_Si",
             listMotorValuesOn: "07246",
-            listMotorValuesOff: "07000"
+            listMotorValuesOff: "07000",
+            imagePressed: "SiPressed",
+            imageUnpressed: "SiUnpressed"
         ),
         MusicNote(
             noteName: "Do",
@@ -88,7 +102,9 @@ extension MusicNote {
             frequencyWave: 52.325,
             command: "NOTE_Do",
             listMotorValuesOn: "08255",
-            listMotorValuesOff: "08000"
+            listMotorValuesOff: "08000",
+            imagePressed: "DooPressed",
+            imageUnpressed: "DooUnpressed"
         )
     ]
     
@@ -101,6 +117,8 @@ extension MusicNote {
         frequencyWave: 26.163,
         command: "NOTE_Do",
         listMotorValuesOn: "01100",
-        listMotorValuesOff: "01000"
+        listMotorValuesOff: "01000",
+        imagePressed: "DooPressed",
+        imageUnpressed: "DooUnpressed"
     )
 }
