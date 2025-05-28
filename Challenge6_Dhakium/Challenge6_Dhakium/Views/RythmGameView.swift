@@ -41,6 +41,7 @@ struct RythmGameView: View {
                 RoundedRectangle(cornerRadius: 15)
                     .fill(Color.white)
                     .frame(width: 709, height: 173)
+                    .padding(.bottom, 30)
                 
                 VStack(spacing: 20) {
                     Rectangle()
@@ -68,6 +69,7 @@ struct RythmGameView: View {
                         .frame(width: 709, height: 5)
                         .opacity(0.3)
                 }
+                .padding(.bottom, 30)
                 
                 VStack {
                     Spacer()
@@ -75,8 +77,7 @@ struct RythmGameView: View {
                     HStack {
                         
                         RythmGameBarsView(game: game, progresses: progresses, scrollOffset: $scrollOffset)
-                            .frame(height: 173)
-                            .padding(.leading, 20)
+                            .frame(width: 709, height: 173)
                     }
                     
                     
