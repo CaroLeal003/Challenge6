@@ -14,6 +14,10 @@ struct ButtonPad: View {
     var onNotePressed: ((String) -> Void)?
     var onNoteReleased: ((String) -> Void)?
     
+    var onNotePressedFreeGame: ((MusicNote) -> Void)?
+    var onNoteReleasedFreeGame: ((MusicNote) -> Void)?
+
+    
     let columns = [
         GridItem(.flexible())
     ]
@@ -57,6 +61,7 @@ struct ButtonPad: View {
                                     activeNoteName = note.noteName
                                     buttonClicked(valueToSend: note.listMotorValuesOn, disabled: isDisabled)
                                     onNotePressed?(note.noteName)
+                                    onNotePressedFreeGame?(note)
                                     print(note.listMotorValuesOn)
                                     
                                 }
@@ -67,6 +72,7 @@ struct ButtonPad: View {
                                 activeNoteName = nil
                                 buttonClicked(valueToSend: note.listMotorValuesOff, disabled: isDisabled)
                                 onNoteReleased?(note.noteName)
+                                onNoteReleasedFreeGame?(note)
                                 print(note.listMotorValuesOff)
                             }
                         }
