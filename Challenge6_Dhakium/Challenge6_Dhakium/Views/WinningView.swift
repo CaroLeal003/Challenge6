@@ -13,8 +13,13 @@ struct WinningView: View {
     let winningPhrases: [String] = ["You're a star!", "Amazing job!", "Great work!", "Wow, incredible!", "You nailed it!", "You're unstoppable", "You're getting better and better!", "What a fantastic move!", "So much talent!", "That was like watching a pro!", "You really shined!"]
     @State private var currentMessage: String = ""
     
+    let onContinue: () -> Void
+    
     var body: some View {
-        NavigationStack {
+        ZStack {
+            
+            Color.white
+            
             VStack {
                 VStack(spacing: 0) {
                     Image("Ihy")
@@ -31,6 +36,7 @@ struct WinningView: View {
                 }
                 Button(action: {
                     dismiss()
+                    onContinue()
                 }, label: {
                     Image("continue_button_image")
                         .resizable()
@@ -43,11 +49,6 @@ struct WinningView: View {
                     currentMessage = random
                 }
             }
-            .navigationBarBackButtonHidden(true)
         }
     }
-}
-
-#Preview {
-    WinningView()
 }

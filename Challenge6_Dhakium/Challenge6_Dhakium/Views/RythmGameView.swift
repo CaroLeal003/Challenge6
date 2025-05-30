@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct RythmGameView: View {
+    let onWinAndDismiss: () -> Void
     
     @Environment(\.dismiss) var dismiss
     @ObservedObject var bluetooth: BluetoothViewModel
@@ -22,10 +23,11 @@ struct RythmGameView: View {
     @State var scrollOffset: CGFloat = 0
     @State var closeExplanation: Bool = false
     
-    init(game: RythmGame, bluetooth: BluetoothViewModel) {
+    init(game: RythmGame, bluetooth: BluetoothViewModel, onWinAndDismiss: @escaping () -> Void) {
         self.game = game
         self._progresses = State(initialValue: Array(repeating: 0.0, count: game.allBars.count))
         self.bluetooth = bluetooth
+        self.onWinAndDismiss = onWinAndDismiss
     }
     
     var body: some View {
@@ -118,10 +120,13 @@ struct RythmGameView: View {
                 
                 if didWin {
                     ZStack {
-                        Color.white
+                        Color.black
                             .ignoresSafeArea()
+                            .opacity(0.5)
                         
-                        WinningView()
+                        WinningView(onContinue: onWinAndDismiss)
+                            .frame(width: 700, height: 350)
+                            .cornerRadius(20)
                     }
                 }
                 
@@ -140,9 +145,4 @@ struct RythmGameView: View {
         }
         .navigationBarBackButtonHidden(true)
     }
-}
-
-
-#Preview {
-    RythmGameView(game: RythmGame.RythmGameForPreview, bluetooth: BluetoothViewModel())
 }

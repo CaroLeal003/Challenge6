@@ -14,6 +14,7 @@ struct LessonDetailView: View {
     @Binding var isInGame: Bool
     let lesson: MusicNote
     let game: RythmGame
+    let onWinAndDismiss: () -> Void
     
     func buttonClicked(valueToSend : String, disabled: Bool){
         if !disabled {
@@ -53,7 +54,7 @@ struct LessonDetailView: View {
                 .offset(x: 340, y: -130)
                 
                 NavigationLink(destination: {
-                    RythmGameView(game: game, bluetooth: bluetooth)
+                    RythmGameView(game: game, bluetooth: bluetooth, onWinAndDismiss: onWinAndDismiss)
                         .onAppear {
                             isInGame = true
                         }
@@ -73,8 +74,4 @@ struct LessonDetailView: View {
             .navigationBarBackButtonHidden(true)
         }        
     }
-}
-
-#Preview {
-    LessonDetailView(bluetooth: BluetoothViewModel(), isInGame: .constant(false), lesson: MusicNote.NoteForPreview, game: RythmGame.RythmGameForPreview)
 }

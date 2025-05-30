@@ -18,7 +18,17 @@ struct LearnView: View {
     
     var body: some View {
         ZStack {
-            LessonDetailView(bluetooth: bluetooth, isInGame: $isInGame, lesson: levels[counter].learn, game: levels[counter].game)
+            LessonDetailView(
+                bluetooth: bluetooth,
+                isInGame: $isInGame,
+                lesson: levels[counter].learn,
+                game: levels[counter].game,
+                onWinAndDismiss: {
+                    if counter < levels.count - 1 {
+                        counter += 1
+                    }
+                }
+            )
             
             HStack {
                 Button(action: {

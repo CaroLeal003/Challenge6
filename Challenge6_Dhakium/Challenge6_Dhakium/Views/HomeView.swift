@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeView: View {
     
     @ObservedObject var bluetoothVM: BluetoothViewModel = .init()
-    let shopURL = URL(string: "https://open.spotify.com/track/4PTG3Z6ehGkBFwjybzWkR8?si=fed79a04714445e4")!
+    //let shopURL = URL(string: "https://open.spotify.com/track/4PTG3Z6ehGkBFwjybzWkR8?si=fed79a04714445e4")!
     @State private var moveUp = false
     @State private var showButtons = false
     @State var showLearn: Bool = false
@@ -64,7 +64,7 @@ struct HomeView: View {
                         })
                         
                         Button(action: {
-                            UIApplication.shared.open(shopURL)
+                            //UIApplication.shared.open(shopURL)
                         }) {
                             VStack {
                                 Image("shop_button_image")

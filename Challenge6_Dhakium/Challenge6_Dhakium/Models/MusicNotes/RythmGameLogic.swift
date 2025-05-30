@@ -30,9 +30,7 @@ extension RythmGameView {
                 stopFilling()
                 
                 if currentBarIndex >= game.allBars.count {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                        didWin = true
-                    }
+                    didWin = true
                     stopFilling()
                     bluetooth.send(command: game.lastNoteValueOff + "\n")
                 }

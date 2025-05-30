@@ -28,7 +28,3 @@ struct WaveView: View {
         }
     }
 }
-
-#Preview {
-    LessonDetailView(bluetooth: BluetoothViewModel(), isInGame: .constant(false), lesson: MusicNote.NoteForPreview, game: RythmGame.RythmGameForPreview)
-}
