@@ -20,6 +20,7 @@ struct RythmGameView: View {
     @State var timer: Timer? = nil
     @State var activeButtonName: String? = nil
     @State var scrollOffset: CGFloat = 0
+    @State var closeExplanation: Bool = false
     
     init(game: RythmGame, bluetooth: BluetoothViewModel) {
         self.game = game
@@ -28,6 +29,7 @@ struct RythmGameView: View {
     }
     
     var body: some View {
+        
         NavigationStack {
             ZStack {
                 Color.colorWater
@@ -103,9 +105,6 @@ struct RythmGameView: View {
                     }
                 }
                 .padding(.top, 120)
-                .alert("You won!", isPresented: $didWin) {
-                    Button("Amazing", role: .cancel) { dismiss() }
-                }
                 
                 Button(action: {
                     dismiss()
@@ -116,6 +115,27 @@ struct RythmGameView: View {
                         .frame(width: 40)
                 })
                 .offset(x: -400, y: -140)
+                
+                if didWin {
+                    ZStack {
+                        Color.white
+                            .ignoresSafeArea()
+                        
+                        WinningView()
+                    }
+                }
+                
+                if !closeExplanation {
+                    ZStack {
+                        Color.black
+                            .ignoresSafeArea()
+                            .opacity(0.5)
+                        
+                        GameExplanationView(closeExplanation: $closeExplanation)
+                            .frame(width: 700, height: 350)
+                            .cornerRadius(20)
+                    }
+                }
             }
         }
         .navigationBarBackButtonHidden(true)

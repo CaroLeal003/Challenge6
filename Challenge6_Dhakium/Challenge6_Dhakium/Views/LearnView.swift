@@ -15,7 +15,6 @@ struct LearnView: View {
     let levels: [Level] = Level.allLevels
     @State var counter: Int = 0
     @State private var isInGame: Bool = false
-
     
     var body: some View {
         ZStack {
@@ -46,6 +45,18 @@ struct LearnView: View {
             }
             .frame(width: 750)
             .opacity(isInGame ? 0 : 1)
+            
+            VStack {
+                Spacer()
+                if !isInGame {
+                    BottomDots(
+                        total: levels.count,
+                        currentIndex: counter,
+                        notes: levels.map { $0.learn }
+                    )
+                    .padding(.bottom, 14)
+                }
+            }
         }
     }
 }

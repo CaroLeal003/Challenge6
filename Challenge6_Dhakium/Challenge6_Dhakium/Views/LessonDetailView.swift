@@ -33,14 +33,14 @@ struct LessonDetailView: View {
                     .frame(width: 770, height: 360)
                 
                 NoteExplanation(lesson: lesson, bluetooth: bluetooth)
-                    .frame(width: 430)
-                    .offset(x: -100)
+                    .frame(width: 450)
+                    .offset(x: -100, y: -15)
                 
                 Image(lesson.imageName)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 130)
-                    .offset(x: -250, y: -120)
+                    .frame(width: 180, height: 100)
+                    .offset(x: lesson.imageName == "SolImage" ? -230 : -250, y: -120)
                 
                 Button(action: {
                     dismiss()
@@ -50,7 +50,7 @@ struct LessonDetailView: View {
                         .scaledToFit()
                         .frame(width: 60)
                 })
-                .offset(x: 330, y: -130)
+                .offset(x: 340, y: -130)
                 
                 NavigationLink(destination: {
                     RythmGameView(game: game, bluetooth: bluetooth)
@@ -66,8 +66,7 @@ struct LessonDetailView: View {
                         .scaledToFit()
                         .frame(width: 160)
                 })
-
-                .offset(x: 250, y: 120)
+                .offset(x: 250, y: 100)
                 
             }
             .ignoresSafeArea()

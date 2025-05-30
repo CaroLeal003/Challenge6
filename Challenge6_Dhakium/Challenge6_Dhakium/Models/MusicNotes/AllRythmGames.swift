@@ -20,7 +20,7 @@ extension RythmGame {
                 NoteBarConfig(duration: 90, color: .colorGreen, name: "Fa", verticalOffset: -23),
                 NoteBarConfig(duration: 90, color: .colorYellow, name: "Mi", verticalOffset: -35),
                 NoteBarConfig(duration: 90, color: .colorOrange, name: "Re", verticalOffset: -47),
-                NoteBarConfig(duration: 90, color: .colorBrown, name: "do", verticalOffset: -58),
+                NoteBarConfig(duration: 90, color: .colorDarkRed, name: "do", verticalOffset: -58),
             ],
             disabledNotes: [""],
             lastNoteValueOff: "01000"

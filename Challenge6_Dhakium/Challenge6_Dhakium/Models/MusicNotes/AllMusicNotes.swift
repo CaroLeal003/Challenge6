@@ -14,7 +14,7 @@ extension MusicNote {
             noteName: "do",
             scientificName: "C4",
             frequency: "261.63 Hz",
-            color: .colorBrown,
+            color: .colorDarkRed,
             frequencyWave: 26.163,
             command: "NOTE_do",
             listMotorValuesOn: "01130",

@@ -16,7 +16,7 @@ extension Level {
                     noteName: "do",
                     scientificName: "C4",
                     frequency: "261.63 Hz",
-                    color: .colorBrown,
+                    color: .colorDarkRed,
                     frequencyWave: 26.163,
                     command: "NOTE_do",
                     listMotorValuesOn: "01130",
@@ -29,10 +29,10 @@ extension Level {
                 RythmGame(
                     level: 1,
                     allBars: [
-                        NoteBarConfig(duration: 70, color: .colorBrown, name: "do", verticalOffset: -58),
-                        NoteBarConfig(duration: 90, color: .colorBrown, name: "do", verticalOffset: -58),
-                        NoteBarConfig(duration: 70, color: .colorBrown, name: "do", verticalOffset: -58),
-                        NoteBarConfig(duration: 90, color: .colorBrown, name: "do", verticalOffset: -58)
+                        NoteBarConfig(duration: 70, color: .colorDarkRed, name: "do", verticalOffset: -58),
+                        NoteBarConfig(duration: 90, color: .colorDarkRed, name: "do", verticalOffset: -58),
+                        NoteBarConfig(duration: 70, color: .colorDarkRed, name: "do", verticalOffset: -58),
+                        NoteBarConfig(duration: 90, color: .colorDarkRed, name: "do", verticalOffset: -58)
                     ],
                     disabledNotes: ["NOTE_Re", "NOTE_Mi", "NOTE_Fa", "NOTE_Sol", "NOTE_La", "NOTE_Si", "NOTE_Do"],
                     lastNoteValueOff: "01000"
@@ -56,10 +56,10 @@ extension Level {
                     level: 2,
                     allBars: [
                         NoteBarConfig(duration: 80, color: .colorOrange, name: "Re", verticalOffset: -47),
-                        NoteBarConfig(duration: 90, color: .colorBrown, name: "do", verticalOffset: -58),
+                        NoteBarConfig(duration: 90, color: .colorDarkRed, name: "do", verticalOffset: -58),
                         NoteBarConfig(duration:  50, color: .colorOrange, name: "Re", verticalOffset: -47),
                         NoteBarConfig(duration:  50, color: .colorOrange, name: "Re", verticalOffset: -47),
-                        NoteBarConfig(duration: 70, color: .colorBrown, name: "do", verticalOffset: -58),
+                        NoteBarConfig(duration: 70, color: .colorDarkRed, name: "do", verticalOffset: -58),
 
                     ],
                     disabledNotes: ["NOTE_Mi", "NOTE_Fa", "NOTE_Sol", "NOTE_La", "NOTE_Si", "NOTE_Do"],
@@ -85,7 +85,7 @@ extension Level {
                     allBars: [
                         NoteBarConfig(duration: 70, color: .colorYellow, name: "Mi", verticalOffset: -35),
                         NoteBarConfig(duration: 70, color: .colorOrange, name: "Re", verticalOffset: -47),
-                        NoteBarConfig(duration: 70, color: .colorBrown, name: "do", verticalOffset: -58),
+                        NoteBarConfig(duration: 70, color: .colorDarkRed, name: "do", verticalOffset: -58),
                         NoteBarConfig(duration: 70, color: .colorOrange, name: "Re", verticalOffset: -47),
                         NoteBarConfig(duration: 90, color: .colorYellow, name: "Mi", verticalOffset: -35),
                         NoteBarConfig(duration: 90, color: .colorYellow, name: "Mi", verticalOffset: -35),
@@ -114,9 +114,9 @@ extension Level {
                     level: 4,
                     allBars: [
                         NoteBarConfig(duration: 80, color: .colorGreen, name: "Fa", verticalOffset: -23),
-                        NoteBarConfig(duration: 80, color: .colorBrown, name: "do", verticalOffset: -58),
+                        NoteBarConfig(duration: 80, color: .colorDarkRed, name: "do", verticalOffset: -58),
                         NoteBarConfig(duration: 80, color: .colorGreen, name: "Fa", verticalOffset: -23),
-                        NoteBarConfig(duration: 60, color: .colorBrown, name: "do", verticalOffset: -58),
+                        NoteBarConfig(duration: 60, color: .colorDarkRed, name: "do", verticalOffset: -58),
                         NoteBarConfig(duration: 60, color: .colorOrange, name: "Re", verticalOffset: -47),
                         NoteBarConfig(duration: 60, color: .colorYellow, name: "Mi", verticalOffset: -35),
                         NoteBarConfig(duration: 80, color: .colorGreen, name: "Fa", verticalOffset: -23),
@@ -241,7 +241,7 @@ extension Level {
                         NoteBarConfig(duration: 90, color: .colorGreen, name: "Fa", verticalOffset: -23),
                         NoteBarConfig(duration: 90, color: .colorYellow, name: "Mi", verticalOffset: -35),
                         NoteBarConfig(duration: 90, color: .colorOrange, name: "Re", verticalOffset: -47),
-                        NoteBarConfig(duration: 90, color: .colorBrown, name: "do", verticalOffset: -58),
+                        NoteBarConfig(duration: 90, color: .colorDarkRed, name: "do", verticalOffset: -58),
                     ],
                     disabledNotes: [""],
                     lastNoteValueOff: "01000"
