@@ -76,6 +76,7 @@ struct ColorPadView: View {
                             }
                             activeNote = note
                             animateStrength(to: 50.0)
+                            SoundManager.shared.playSound(named: activeNote?.scientificName ?? "Do")
                         },
                         onNoteReleasedFreeGame: { _ in
                             animateStrength(to: 0.0)

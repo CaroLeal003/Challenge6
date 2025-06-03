@@ -58,12 +58,12 @@ struct NoteExplanation: View {
                                 .onChanged { _ in
                                     if !isButtonPressed {
                                         isButtonPressed = true
-                                        animateStrength(to: 30.0)
+                                        animateStrength(to: 30.0, musicNote: lesson)
                                     }
                                 }
                                 .onEnded { _ in
                                     isButtonPressed = false
-                                    animateStrength(to: 00.0)
+                                    animateStrength(to: 00.0, musicNote: lesson)
                                     bluetooth.send(command: lesson.listMotorValuesOff + "\n")
                                 }
                         )
@@ -74,8 +74,12 @@ struct NoteExplanation: View {
         }
     }
     
-    func animateStrength(to target: CGFloat) {
+    func animateStrength(to target: CGFloat, musicNote: MusicNote) {
         strengthTimer?.invalidate()
+        
+        if target != 00.0 {
+            SoundManager.shared.playSound(named: musicNote.scientificName)
+        }
         
         let step: CGFloat = 1.0
         let interval = 0.01

@@ -90,6 +90,9 @@ struct RythmGameView: View {
                             disabledNotes: game.disabledNotes,
                             onNotePressed: { name in
                                 activeButtonName = name
+                                if let scientificName = MusicNote.AllMusicNotes.first(where: { $0.noteName == activeButtonName })?.scientificName {
+                                    SoundManager.shared.playSound(named: scientificName)
+                                }
                                 startFilling()
                             },
                             onNoteReleased: { _ in
