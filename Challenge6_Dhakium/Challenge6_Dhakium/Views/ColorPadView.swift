@@ -9,11 +9,11 @@ import SwiftUI
 
 struct ColorPadView: View {
     @ObservedObject var bluetooth: BluetoothViewModel
-    @Environment(\.dismiss) var dismiss
     @State private var activeNote: MusicNote? = nil
     @State var strength: Double = 0
     @State private var strengthTimer: Timer?
     @State private var hasPressed = false
+    @Binding var showColorPad: Bool
 
     
     var body: some View {
@@ -23,21 +23,16 @@ struct ColorPadView: View {
                     .ignoresSafeArea()
                     .opacity(0.61)
                 
-                RoundedRectangle(cornerRadius: 24)
-                    .fill(Color.colorLightYellow)
-                    .frame(width: 745, height: 264)
-                
                 RoundedRectangle(cornerRadius: 15)
                     .fill(Color.white)
-                    .frame(width: 709, height: 173)
-                    .padding(.bottom, 30)
+                    .frame(width: 709, height: 215)
+                    .padding(.bottom, 120)
                 
                 HStack {
                     ZStack {
                         RoundedRectangle(cornerRadius: 20)
                         .fill(Color.white)
                         .frame(width: 350, height: 140)
-                        .border(Color.colorWater, width: 2)
 
                     if let activeNote = activeNote {
                         WaveView(
@@ -45,11 +40,11 @@ struct ColorPadView: View {
                             frequency: activeNote.frequencyWave,
                             strength: $strength
                         )
-                        .frame(width: 300, height: 90)
+                        .frame(width: 340, height: 120)
                         .padding()
                     } else if !hasPressed {
                         Text("This is a free play mode\nExplore your creativity and create something amazing!")
-                            .font(.custom("BalooTamma-Regular", size: 20))
+                            .font(.custom("BalooTamma-Regular", size: 25))
                             .foregroundStyle(Color(red: 0/255, green: 61/255, blue: 152/255))
                             .multilineTextAlignment(.center)
                             .transition(.opacity)
@@ -61,16 +56,16 @@ struct ColorPadView: View {
                     Image("Ihy")
                         .resizable()
                         .scaledToFit()
-                        .frame(height: 170)
+                        .frame(height: 180)
                 }
-                .padding(.bottom, 30)
+                .padding(.bottom, 120)
                 .frame(width: 600)
                 
                 ZStack {
                     Image("RythmGameRectangle")
                         .resizable()
                         .ignoresSafeArea()
-                        .frame(height: 122)
+                        .frame(height: 160)
                     
                     ButtonPad(
                         bluetooth: bluetooth,
@@ -80,27 +75,29 @@ struct ColorPadView: View {
                                 hasPressed = true
                             }
                             activeNote = note
-                            animateStrength(to: 30.0)
+                            animateStrength(to: 50.0)
                         },
                         onNoteReleasedFreeGame: { _ in
                             animateStrength(to: 0.0)
                         }
                     )
-
-
                     .frame(height: 122)
                 }
-                .padding(.top, 310)
+                .padding(.top, 275)
                 
                 Button(action: {
-                    dismiss()
+                    showColorPad = false
                 }, label: {
                     Image("backward_arrow_image")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 40)
                 })
-                .offset(x: -400, y: -140)
+                .offset(x: -380, y: -140)
+            }
+            .onChange(of: showColorPad) { _, _ in
+                activeNote = nil
+                hasPressed = false
             }
         }
         .navigationBarBackButtonHidden(true)
@@ -127,5 +124,5 @@ struct ColorPadView: View {
 }
 
 #Preview {
-    ColorPadView(bluetooth: BluetoothViewModel())
+    ColorPadView(bluetooth: BluetoothViewModel(), showColorPad: .constant(false))
 }

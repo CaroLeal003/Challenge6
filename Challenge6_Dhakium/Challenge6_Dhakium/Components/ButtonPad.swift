@@ -52,6 +52,7 @@ struct ButtonPad: View {
                             .frame(width: 85, height: 104)
                     }
                 }
+                .padding(.bottom, 20)
                 
                 .gesture(
                     DragGesture(minimumDistance: 0)

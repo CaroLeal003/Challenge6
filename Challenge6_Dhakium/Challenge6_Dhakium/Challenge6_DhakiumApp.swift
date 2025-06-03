@@ -11,7 +11,7 @@ import SwiftUI
 struct Challenge6_DhakiumApp: App {
     var body: some Scene {
         WindowGroup {
-            AppView().preferredColorScheme(.light)
+            AppView(bluetooth: BluetoothViewModel()).preferredColorScheme(.light)
         }
         
     }

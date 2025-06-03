@@ -17,6 +17,7 @@ struct NoteExplanation: View {
     
     var body: some View {
         ZStack {
+            
             Image("detail_explain_image")
                 .resizable()
                 .scaledToFit()
@@ -26,7 +27,7 @@ struct NoteExplanation: View {
                 Spacer()
                 Spacer()
                 
-                Text("Press the button and feel the vibration")
+                Text("Press the note to feel the vibration")
                     .font(.custom("BalooTamma-Regular", size: 20))
                     .foregroundStyle(Color(red: 0/255, green: 61/255, blue: 152/255))
                 

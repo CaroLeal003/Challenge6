@@ -9,8 +9,6 @@ import SwiftUI
 
 struct RythmGameView: View {
     let onWinAndDismiss: () -> Void
-    
-    @Environment(\.dismiss) var dismiss
     @ObservedObject var bluetooth: BluetoothViewModel
     
     let game: RythmGame
@@ -22,12 +20,14 @@ struct RythmGameView: View {
     @State var activeButtonName: String? = nil
     @State var scrollOffset: CGFloat = 0
     @State var closeExplanation: Bool = false
+    let onDismiss: () -> Void
     
-    init(game: RythmGame, bluetooth: BluetoothViewModel, onWinAndDismiss: @escaping () -> Void) {
+    init(game: RythmGame, bluetooth: BluetoothViewModel, onWinAndDismiss: @escaping () -> Void, onDismiss: @escaping () -> Void) {
         self.game = game
         self._progresses = State(initialValue: Array(repeating: 0.0, count: game.allBars.count))
         self.bluetooth = bluetooth
         self.onWinAndDismiss = onWinAndDismiss
+        self.onDismiss = onDismiss
     }
     
     var body: some View {
@@ -38,14 +38,10 @@ struct RythmGameView: View {
                     .ignoresSafeArea()
                     .opacity(0.61)
                 
-                RoundedRectangle(cornerRadius: 24)
-                    .fill(Color.colorLightYellow)
-                    .frame(width: 745, height: 264)
-                
                 RoundedRectangle(cornerRadius: 15)
                     .fill(Color.white)
-                    .frame(width: 709, height: 173)
-                    .padding(.bottom, 30)
+                    .frame(width: 709, height: 215)
+                    .padding(.bottom, 120)
                 
                 VStack(spacing: 20) {
                     Rectangle()
@@ -73,23 +69,21 @@ struct RythmGameView: View {
                         .frame(width: 709, height: 5)
                         .opacity(0.3)
                 }
-                .padding(.bottom, 30)
+                .padding(.bottom, 120)
                 
-                VStack {
+
                     Spacer()
                     
                     HStack {
-                        
                         RythmGameBarsView(game: game, progresses: progresses, scrollOffset: $scrollOffset)
                             .frame(width: 709, height: 173)
                     }
-                    
                     
                     ZStack {
                         Image("RythmGameRectangle")
                             .resizable()
                             .ignoresSafeArea()
-                            .frame(height: 122)
+                            .frame(height: 160)
                         
                         ButtonPad(
                             bluetooth: bluetooth,
@@ -105,18 +99,19 @@ struct RythmGameView: View {
                         )
                         .frame(height: 122)
                     }
-                }
-                .padding(.top, 120)
+                    .padding(.top, 275)
+                
+
                 
                 Button(action: {
-                    dismiss()
+                    onDismiss()
                 }, label: {
                     Image("backward_arrow_image")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 40)
                 })
-                .offset(x: -400, y: -140)
+                .offset(x: -380, y: -140)
                 
                 if didWin {
                     ZStack {
@@ -146,3 +141,14 @@ struct RythmGameView: View {
         .navigationBarBackButtonHidden(true)
     }
 }
+
+#Preview {
+    RythmGameView(
+        game: RythmGame.RythmGameForPreview,
+        bluetooth: BluetoothViewModel(),
+        onWinAndDismiss: {},
+        onDismiss: {}
+    )
+}
+
+

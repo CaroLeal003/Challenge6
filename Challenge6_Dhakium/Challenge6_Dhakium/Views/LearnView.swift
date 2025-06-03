@@ -15,12 +15,15 @@ struct LearnView: View {
     let levels: [Level] = Level.allLevels
     @State var counter: Int = 0
     @State private var isInGame: Bool = false
+    @State private var showGame: Bool = false
+    @Binding var showLearn: Bool
     
     var body: some View {
         ZStack {
             LessonDetailView(
                 bluetooth: bluetooth,
                 isInGame: $isInGame,
+                showGame: $showGame,
                 lesson: levels[counter].learn,
                 game: levels[counter].game,
                 onWinAndDismiss: {
@@ -29,6 +32,43 @@ struct LearnView: View {
                     }
                 }
             )
+            .opacity(showGame ? 0 : 1)
+            
+            if showGame {
+                RythmGameView(
+                    game: levels[counter].game,
+                    bluetooth: bluetooth,
+                    onWinAndDismiss: {
+                        withAnimation(.easeInOut) {
+                            showGame = false
+                            isInGame = false
+                            if counter < levels.count - 1 {
+                                counter += 1
+                            }
+
+                        }
+                    },
+                    onDismiss: {
+                        withAnimation(.easeInOut) {
+                            showGame = false
+                            isInGame = false
+                        }
+                    }
+                )
+                .transition(.move(edge: .trailing))
+                .zIndex(1)
+            }
+            
+            Button(action: {
+                showLearn = false
+            }, label: {
+                Image("close_button_image")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 60)
+            })
+            .offset(x: 300, y: -130)
+            .opacity(isInGame ? 0 : 1)
             
             HStack {
                 Button(action: {
@@ -53,7 +93,7 @@ struct LearnView: View {
                 })
                 .opacity(counter == levels.count - 1 ? 0 : 1)
             }
-            .frame(width: 750)
+            .frame(width: 720)
             .opacity(isInGame ? 0 : 1)
             
             VStack {
@@ -72,5 +112,5 @@ struct LearnView: View {
 }
 
 #Preview {
-    LearnView(bluetooth: BluetoothViewModel())
+    LearnView(bluetooth: BluetoothViewModel(), showLearn: .constant(false))
 }

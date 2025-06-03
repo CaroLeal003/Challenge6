@@ -9,13 +9,39 @@
 import SwiftUI
 
 struct AppView: View {
+    @State private var showLearn = false
+    @State private var showColorPad = false
+    @ObservedObject var bluetooth: BluetoothViewModel = .init()
+
     var body: some View {
-        NavigationStack {
-            HomeView()
+        ZStack {
+            Image("Background")
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea()
+
+            // Home View
+            HomeView(
+                bluetoothVM: bluetooth,
+                showLearn: $showLearn,
+                showColorPad: $showColorPad
+            )
+            .opacity(showLearn || showColorPad ? 0 : 1)
+            .animation(.easeInOut(duration: 0.5), value: showLearn || showColorPad)
+
+            // Learn View animada desde abajo
+            LearnView(bluetooth: bluetooth, showLearn: $showLearn)
+                .offset(y: showLearn ? 0 : UIScreen.main.bounds.height)
+                .animation(.easeInOut(duration: 0.5), value: showLearn)
+
+            // ColorPad View animada desde la derecha
+            ColorPadView(bluetooth: bluetooth, showColorPad: $showColorPad)
+                .offset(x: showColorPad ? 0 : UIScreen.main.bounds.width)
+                .animation(.easeInOut(duration: 0.5), value: showColorPad)
         }
     }
 }
 
 #Preview {
-    AppView()
+    AppView(bluetooth: BluetoothViewModel())
 }

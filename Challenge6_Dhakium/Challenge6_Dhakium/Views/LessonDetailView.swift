@@ -10,8 +10,8 @@ import SwiftUI
 struct LessonDetailView: View {
     
     @ObservedObject var bluetooth: BluetoothViewModel
-    @Environment(\.dismiss) var dismiss
     @Binding var isInGame: Bool
+    @Binding var showGame: Bool
     let lesson: MusicNote
     let game: RythmGame
     let onWinAndDismiss: () -> Void
@@ -23,55 +23,40 @@ struct LessonDetailView: View {
     }
     
     var body: some View {
-        NavigationStack {
-            ZStack {
-                Image("BackgroundLessonView")
-                    .resizable()
-                    .scaledToFill()
-                
-                RoundedRectangle(cornerRadius: 45)
-                    .fill(Color.white)
-                    .frame(width: 770, height: 360)
-                
-                NoteExplanation(lesson: lesson, bluetooth: bluetooth)
-                    .frame(width: 450)
-                    .offset(x: -100, y: -15)
-                
-                Image(lesson.imageName)
+        ZStack {
+            RoundedRectangle(cornerRadius: 45)
+                .fill(Color.white)
+                .frame(width: 730, height: 360)
+            
+            NoteExplanation(lesson: lesson, bluetooth: bluetooth)
+                .frame(width: 440)
+                .offset(x: -85, y: -15)
+            
+            Image(lesson.imageName)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 180, height: 100)
+                .offset(x: lesson.imageName == "SolImage" ? -220 : -230, y: -120)
+            
+            Button(action: {
+                withAnimation {
+                    showGame = true
+                    isInGame = true
+                }
+            }, label: {
+                Image("practice_button_image")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 180, height: 100)
-                    .offset(x: lesson.imageName == "SolImage" ? -230 : -250, y: -120)
-                
-                Button(action: {
-                    dismiss()
-                }, label: {
-                    Image("close_button_image")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 60)
-                })
-                .offset(x: 340, y: -130)
-                
-                NavigationLink(destination: {
-                    RythmGameView(game: game, bluetooth: bluetooth, onWinAndDismiss: onWinAndDismiss)
-                        .onAppear {
-                            isInGame = true
-                        }
-                        .onDisappear {
-                            isInGame = false
-                        }
-                }, label: {
-                    Image("practice_button_image")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 160)
-                })
-                .offset(x: 250, y: 100)
-                
-            }
-            .ignoresSafeArea()
-            .navigationBarBackButtonHidden(true)
-        }        
+                    .frame(width: 160)
+            })
+            .offset(x: 250, y: 100)
+            
+        }
+        .ignoresSafeArea()
     }
+    
+}
+
+#Preview {
+    LessonDetailView(bluetooth: BluetoothViewModel(), isInGame: .constant(false), showGame: .constant(false), lesson: MusicNote.NoteForPreview, game: RythmGame.RythmGameForPreview, onWinAndDismiss: {})
 }
