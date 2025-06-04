@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeView: View {
     
     @ObservedObject var bluetoothVM: BluetoothViewModel
-    let shopURL = URL(string: "https://open.spotify.com/track/4PTG3Z6ehGkBFwjybzWkR8?si=fed79a04714445e4")!
+    let shopURL = URL(string: "https://haptihysupport.carrd.co")!
     @State private var moveUp = false
     @State private var showButtons = false
     @Binding var showLearn: Bool
@@ -24,8 +24,6 @@ struct HomeView: View {
                     .scaledToFit()
                     .frame(width: moveUp ? 500 : 800)
                     .offset(y: moveUp ? 40 : 120)
-                    //.frame(width: 500)
-                    //.offset(y: 40)
                     .animation(.easeInOut(duration: 1), value: moveUp)
                 
                 Spacer()

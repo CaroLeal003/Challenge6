@@ -10,7 +10,18 @@ import SwiftUI
 struct WinningView: View {
     @Environment(\.dismiss) var dismiss
     
-    let winningPhrases: [String] = ["You're a star!", "Amazing job!", "Great work!", "Wow, incredible!", "You nailed it!", "You're unstoppable", "You're getting better and better!", "What a fantastic move!", "So much talent!", "That was like watching a pro!", "You really shined!"]
+    let winningPhrases: [String] = [
+        NSLocalizedString("You're a star!", comment: ""),
+        NSLocalizedString("Amazing job!", comment: ""),
+        NSLocalizedString("Great work!", comment: ""),
+        NSLocalizedString("Wow, incredible!", comment: ""),
+        NSLocalizedString("You nailed it!", comment: ""),
+        NSLocalizedString("You're unstoppable", comment: ""),
+        NSLocalizedString("You're getting better and better!", comment: ""),
+        NSLocalizedString("What a fantastic move!", comment: ""),
+        NSLocalizedString("So much talent!", comment: ""),
+        NSLocalizedString("That was like watching a pro!", comment: ""),
+        NSLocalizedString("You really shined!", comment: ""),]
     @State private var currentMessage: String = ""
     
     let onContinue: () -> Void
