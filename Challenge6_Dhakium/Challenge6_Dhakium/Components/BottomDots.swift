@@ -15,9 +15,9 @@ struct BottomDots: View {
     var body: some View {
         HStack(spacing: 12) {
             ForEach(0..<total, id: \.self) { index in
-                Circle()
+                RoundedRectangle(cornerRadius: 10)
                     .fill(index == currentIndex ? notes[index].color : Color.gray.opacity(0.4))
-                    .frame(width: 14, height: 14)
+                    .frame(width: 65, height: 4)
             }
         }
     }

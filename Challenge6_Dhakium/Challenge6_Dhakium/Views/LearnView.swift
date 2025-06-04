@@ -67,7 +67,7 @@ struct LearnView: View {
                     .scaledToFit()
                     .frame(width: 60)
             })
-            .offset(x: 300, y: -130)
+            .offset(x: 300, y: -110)
             .opacity(isInGame ? 0 : 1)
             
             HStack {
@@ -97,17 +97,18 @@ struct LearnView: View {
             .opacity(isInGame ? 0 : 1)
             
             VStack {
-                Spacer()
                 if !isInGame {
                     BottomDots(
                         total: levels.count,
                         currentIndex: counter,
                         notes: levels.map { $0.learn }
                     )
-                    .padding(.bottom, 14)
+                    .padding(.top, 20)
                 }
+                Spacer()
             }
         }
+        .padding(.top)
     }
 }
 

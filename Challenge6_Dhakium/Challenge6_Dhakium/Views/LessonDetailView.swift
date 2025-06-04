@@ -30,13 +30,13 @@ struct LessonDetailView: View {
             
             NoteExplanation(lesson: lesson, bluetooth: bluetooth)
                 .frame(width: 440)
-                .offset(x: -85, y: -15)
+                .offset(x: -85, y: 10)
             
             Image(lesson.imageName)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 180, height: 100)
-                .offset(x: lesson.imageName == "SolImage" ? -220 : -230, y: -120)
+                .offset(x: lesson.imageName == "SolImage" ? -220 : -230, y: -95)
             
             Button(action: {
                 withAnimation {
@@ -49,7 +49,7 @@ struct LessonDetailView: View {
                     .scaledToFit()
                     .frame(width: 160)
             })
-            .offset(x: 250, y: 100)
+            .offset(x: 250, y: 120)
             
         }
         .ignoresSafeArea()
