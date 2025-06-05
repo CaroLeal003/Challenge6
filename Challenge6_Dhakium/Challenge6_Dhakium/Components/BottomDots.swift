@@ -17,8 +17,9 @@ struct BottomDots: View {
             ForEach(0..<total, id: \.self) { index in
                 RoundedRectangle(cornerRadius: 10)
                     .fill(index == currentIndex ? notes[index].color : Color.gray.opacity(0.4))
-                    .frame(width: 65, height: 4)
+                    .frame(width: 50, height: 4)
             }
+            .padding(.trailing, 5)
         }
     }
 }

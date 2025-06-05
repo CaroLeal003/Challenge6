@@ -27,10 +27,11 @@ struct LessonDetailView: View {
             RoundedRectangle(cornerRadius: 45)
                 .fill(Color.white)
                 .frame(width: 730, height: 360)
+                .shadow(radius: 5)
             
             NoteExplanation(lesson: lesson, bluetooth: bluetooth)
                 .frame(width: 440)
-                .offset(x: -85, y: 10)
+                .offset(x: -85, y: 0)
             
             Image(lesson.imageName)
                 .resizable()
@@ -49,7 +50,7 @@ struct LessonDetailView: View {
                     .scaledToFit()
                     .frame(width: 160)
             })
-            .offset(x: 250, y: 120)
+            .offset(x: 250, y: 113)
             
         }
         .ignoresSafeArea()

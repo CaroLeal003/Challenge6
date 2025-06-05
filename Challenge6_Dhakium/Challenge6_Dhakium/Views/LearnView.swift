@@ -103,12 +103,11 @@ struct LearnView: View {
                         currentIndex: counter,
                         notes: levels.map { $0.learn }
                     )
-                    .padding(.top, 20)
                 }
                 Spacer()
             }
+            .offset(y: 30)
         }
-        .padding(.top)
     }
 }
 

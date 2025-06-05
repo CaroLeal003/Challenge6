@@ -25,7 +25,6 @@ struct NoteExplanation: View {
             VStack {
                 Spacer()
                 Spacer()
-                Spacer()
                 
                 Text("Press the note to feel the vibration")
                     .font(.custom("BalooTamma-Regular", size: 20))
@@ -70,7 +69,7 @@ struct NoteExplanation: View {
                 }
                 Spacer()
             }
-            
+            .padding(.top, 35)
         }
     }
     
