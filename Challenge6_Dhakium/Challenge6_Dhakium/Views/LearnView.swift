@@ -98,7 +98,7 @@ struct LearnView: View {
             
             VStack {
                 if !isInGame {
-                    BottomDots(
+                    TopProgressBars(
                         total: levels.count,
                         currentIndex: counter,
                         notes: levels.map { $0.learn }

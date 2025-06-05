@@ -1,5 +1,5 @@
 //
-//  BottomDots.swift
+//  TopProgressBars.swift
 //  Challenge6_Dhakium
 //
 //  Created by Carolina Nicole Gonzalez Leal on 29/05/25.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BottomDots: View {
+struct TopProgressBars: View {
     let total: Int
     let currentIndex: Int
     let notes: [MusicNote]
@@ -16,7 +16,7 @@ struct BottomDots: View {
         HStack(spacing: 12) {
             ForEach(0..<total, id: \.self) { index in
                 RoundedRectangle(cornerRadius: 10)
-                    .fill(index == currentIndex ? notes[index].color : Color.gray.opacity(0.4))
+                    .fill(index <= currentIndex ? notes[index].color : Color.gray.opacity(0.4))
                     .frame(width: 50, height: 4)
             }
             .padding(.trailing, 5)
@@ -25,5 +25,5 @@ struct BottomDots: View {
 }
 
 #Preview {
-    BottomDots(total: 8, currentIndex: 0, notes: MusicNote.AllMusicNotes)
+    TopProgressBars(total: 8, currentIndex: 0, notes: MusicNote.AllMusicNotes)
 }
