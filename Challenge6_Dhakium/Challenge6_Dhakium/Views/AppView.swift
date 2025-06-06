@@ -11,6 +11,7 @@ import SwiftUI
 struct AppView: View {
     @State private var showLearn = false
     @State private var showColorPad = false
+    @State private var showParentGate = false
     @ObservedObject var bluetooth: BluetoothViewModel = .init()
 
     var body: some View {
@@ -24,10 +25,11 @@ struct AppView: View {
             HomeView(
                 bluetoothVM: bluetooth,
                 showLearn: $showLearn,
-                showColorPad: $showColorPad
+                showColorPad: $showColorPad,
+                showParentGate: $showParentGate
             )
             .opacity(showLearn || showColorPad ? 0 : 1)
-            .animation(.easeInOut(duration: 0.5), value: showLearn || showColorPad)
+            .animation(.easeInOut(duration: 0.5), value: showLearn || showColorPad || showParentGate)
 
             // Learn View animada desde abajo
             LearnView(bluetooth: bluetooth, showLearn: $showLearn)
@@ -38,6 +40,11 @@ struct AppView: View {
             ColorPadView(bluetooth: bluetooth, showColorPad: $showColorPad)
                 .offset(x: showColorPad ? 0 : UIScreen.main.bounds.width)
                 .animation(.easeInOut(duration: 0.5), value: showColorPad)
+            
+            ParentalGateView(showParentGate: $showParentGate)
+                .offset(x: showParentGate ? 0 : UIScreen.main.bounds.width)
+                .animation(.easeInOut(duration: 0.5), value: showParentGate)
+            
         }
     }
 }

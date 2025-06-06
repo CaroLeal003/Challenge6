@@ -14,7 +14,6 @@ struct ColorPadView: View {
     @State private var strengthTimer: Timer?
     @State private var hasPressed = false
     @Binding var showColorPad: Bool
-
     
     var body: some View {
         NavigationStack {

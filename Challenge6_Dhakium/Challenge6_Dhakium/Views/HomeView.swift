@@ -10,11 +10,11 @@ import SwiftUI
 struct HomeView: View {
     
     @ObservedObject var bluetoothVM: BluetoothViewModel
-    let shopURL = URL(string: "https://haptihysupport.carrd.co")!
     @State private var moveUp = false
     @State private var showButtons = false
     @Binding var showLearn: Bool
     @Binding var showColorPad: Bool
+    @Binding var showParentGate: Bool
     
     var body: some View {
         ZStack {
@@ -27,7 +27,6 @@ struct HomeView: View {
                     .animation(.easeInOut(duration: 1), value: moveUp)
                 
                 Spacer()
-                
                 
                 HStack(alignment: .bottom, spacing: 30) {
                     Button(action: {
@@ -56,7 +55,7 @@ struct HomeView: View {
                     })
                     
                     Button(action: {
-                        UIApplication.shared.open(shopURL)
+                        showParentGate = true
                     }) {
                         VStack {
                             Image("shop_button_image")
@@ -85,5 +84,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView(bluetoothVM: BluetoothViewModel(), showLearn: .constant(false), showColorPad: .constant(false))
+    HomeView(bluetoothVM: BluetoothViewModel(), showLearn: .constant(false), showColorPad: .constant(false), showParentGate: .constant(false))
 }
