@@ -36,12 +36,10 @@ class LoopingPlayerUIView: UIView {
 
         super.init(frame: .zero)
         
-        // Setup the player
         playerLayer.player = player
         playerLayer.videoGravity = .resizeAspectFill
         layer.addSublayer(playerLayer)
 
-        // Create a new player looper with the queue player and template item
         playerLooper = AVPlayerLooper(player: player, templateItem: item)
         player.play()
     }
@@ -79,14 +77,14 @@ struct GameExplanationView: View {
                     Image("game_explanation")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 370)
+                        .frame(width: 430)
                     
                     Text("Now we're going to play a little game!\nPress the correct button to fill in the bar")
                         .font(.custom("BalooTamma-Regular", size: 18))
                         .foregroundStyle(Color(red: 0/255, green: 61/255, blue: 152/255))
                         .multilineTextAlignment(.center)
                         .frame(width: 300)
-                        .offset(x: -30, y: -85)
+                        .offset(x: -60, y: -85)
                 }
                 Spacer()
             }

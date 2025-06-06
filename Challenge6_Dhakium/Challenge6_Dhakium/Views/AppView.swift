@@ -21,7 +21,6 @@ struct AppView: View {
                 .scaledToFill()
                 .ignoresSafeArea()
 
-            // Home View
             HomeView(
                 bluetoothVM: bluetooth,
                 showLearn: $showLearn,
