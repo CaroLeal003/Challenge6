@@ -52,7 +52,26 @@
       }
     },
     "Are you ready to have fun with music?" : {
-
+      "localizations" : {
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Estás listo para divertirte con la música?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prêt(e) à t’amuser avec la musique ?"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sei pronto a divertirti con la musica?"
+          }
+        }
+      }
     },
     "Ask your parents" : {
       "localizations" : {
@@ -237,7 +256,26 @@
       }
     },
     "Don’t worry! \nYou can get the \nt-shirt later in the app." : {
-
+      "localizations" : {
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No te preocupes! \nPuedes conseguir la \ncamiseta después en la app."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "T’inquiète pas !\nTu pourras le commander\nplus tard dans l’application."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non preoccuparti\nPuoi acquistare la maglietta\npiù tardi nell’app."
+          }
+        }
+      }
     },
     "English" : {
       "localizations" : {
@@ -306,7 +344,26 @@
       }
     },
     "Give access to Bluetooth so the t-shirt can work its magic." : {
-
+      "localizations" : {
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Permite el acceso a Bluetooth para que la camiseta haga su magia."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Active le Bluetooth pour que le t-shirt puisse faire sa magie."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Attiva il Bluetooth così la maglietta può fare la sua magia."
+          }
+        }
+      }
     },
     "Great work!" : {
       "localizations" : {
@@ -403,7 +460,26 @@
       }
     },
     "Hi there! 👋\nThis app helps kids \nwho can't hear well enjoy music!" : {
-
+      "localizations" : {
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hola! \nEsta aplicación ayuda a los niños \ncon dificultad auditiva a disfrutar la música."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salut! 👋\nCette application aide les enfants\nmalentendants à profiter de la musique ! "
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ciao! 👋\nQuesta app aiuta i bambini che non sentono\nbene a divertirsi con la musica!"
+          }
+        }
+      }
     },
     "How many legs does a spider have?" : {
       "localizations" : {
@@ -1184,7 +1260,26 @@
       }
     },
     "The t-shirt connects all by itself! Look for the icon to check if it’s ready." : {
-
+      "localizations" : {
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La camiseta se conecta por si misma! Mira el ícono para revisar si está lista."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le t-shirt se connecte tout seul ! Regarde l’icône pour vérifier s’il est prêt"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La maglietta si collega da sola! Cerca l’icona per vedere se è pronta."
+          }
+        }
+      }
     },
     "This is a free play mode\nExplore your creativity and create something amazing!" : {
       "localizations" : {
@@ -1215,7 +1310,26 @@
       }
     },
     "To feel the music, you’ll need a special t-shirt!" : {
-
+      "localizations" : {
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para sentir la música, necesitarás una camiseta especial!"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pour ressentir la musique, tu auras besoin d’un t-shirt spécial !"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Per sentire la musica, ti servirà una maglietta speciale!"
+          }
+        }
+      }
     },
     "Triangle" : {
       "localizations" : {

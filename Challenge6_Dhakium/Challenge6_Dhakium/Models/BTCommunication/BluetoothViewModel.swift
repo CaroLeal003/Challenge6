@@ -8,6 +8,8 @@ class BluetoothViewModel: NSObject, ObservableObject, CBCentralManagerDelegate, 
 
     private let targetServiceUUID = CBUUID(string: "FFE0") // Es: HM-10
     private let targetCharacteristicUUID = CBUUID(string: "FFE1") // Es: HM-10
+    
+    @Published var isConnected: Bool = false
 
     override init() {
         super.init()
@@ -58,6 +60,7 @@ class BluetoothViewModel: NSObject, ObservableObject, CBCentralManagerDelegate, 
     func centralManager(_ central: CBCentralManager,
                         didConnect peripheral: CBPeripheral) {
         print("Connected to \(peripheral.name ?? "device")")
+        isConnected = true
         peripheral.discoverServices([targetServiceUUID])
     }
 
@@ -65,7 +68,9 @@ class BluetoothViewModel: NSObject, ObservableObject, CBCentralManagerDelegate, 
                         didFailToConnect peripheral: CBPeripheral,
                         error: Error?) {
         print("Connection failed: \(error?.localizedDescription ?? "unknown error")")
+        isConnected = false
     }
+
 
     // MARK: - CBPeripheralDelegate
 

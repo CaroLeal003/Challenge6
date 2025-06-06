@@ -70,13 +70,21 @@ struct HomeView: View {
                 .opacity(showButtons ? 1 : 0)
                 .animation(.easeIn(duration: 1), value: showButtons)
             }
-            .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                    moveUp = true
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                        showButtons = true
-                    }
+            Image(bluetoothVM.isConnected ? "on" : "off")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 40, height: 40)
+                .offset(x: 350, y: -140)
+                .opacity(showButtons ? 1 : 0)
+                .animation(.easeIn(duration: 1), value: showButtons)
+                
+        }
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                moveUp = true
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                    showButtons = true
                 }
             }
         }

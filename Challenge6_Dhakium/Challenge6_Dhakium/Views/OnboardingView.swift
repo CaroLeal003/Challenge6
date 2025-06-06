@@ -26,6 +26,15 @@ let onboardingImages = [
     "Ihy_happy_explanation"
 ]
 
+let moreImages: [String] = [
+    "",
+    "shirt",
+    "shop_button_image",
+    "",
+    "on",
+    ""
+]
+
 struct OnboardingView: View {
 
     @State private var currentIndex = 0
@@ -41,6 +50,15 @@ struct OnboardingView: View {
             
             HStack {
                 ZStack {
+                    
+                    Image(moreImages[currentIndex])
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: currentIndex == 1 ? 200 : 100, height: currentIndex == 1 ? 200 : 100)
+                        .offset(x: -150, y: 90)
+                        .shadow(radius: 2)
+                    
+                    
                     Image(images[currentIndex])
                         .resizable()
                         .scaledToFit()
