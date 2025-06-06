@@ -3,12 +3,6 @@
   "strings" : {
     "Amazing job!" : {
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "عمل رائع"
-          }
-        },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
@@ -75,12 +69,6 @@
     },
     "Ask your parents" : {
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "اسأل والديك"
-          }
-        },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
@@ -367,12 +355,6 @@
     },
     "Great work!" : {
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "عمل ممتاز"
-          }
-        },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
@@ -769,12 +751,6 @@
     },
     "Now we're going to play a little game!\nPress the correct button to fill in the bar" : {
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "!الآن سنلعب لعبة صغيرة\nاضغط على الزر الصحيح لملء الشريط"
-          }
-        },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
@@ -797,12 +773,6 @@
     },
     "OK" : {
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "حسنًا"
-          }
-        },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
@@ -935,12 +905,6 @@
     },
     "Press the note to feel the vibration" : {
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "اضغط على النغمة لتشعر بالاهتزاز"
-          }
-        },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1117,12 +1081,6 @@
     },
     "So much talent!" : {
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "يا له من موهبة عظيمة"
-          }
-        },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1233,12 +1191,6 @@
     },
     "That was like watching a pro!" : {
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "كان ذلك مثل مشاهدة محترف"
-          }
-        },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1283,12 +1235,6 @@
     },
     "This is a free play mode\nExplore your creativity and create something amazing!" : {
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : " هذا وضع اللعب الحر\n اكتشف إبداعك وابتكر شيئًا رائعًا"
-          }
-        },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1421,12 +1367,6 @@
     },
     "What a fantastic move!" : {
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "يا لها من حركة رائعة"
-          }
-        },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1449,12 +1389,6 @@
     },
     "What gas do humans breathe to live?" : {
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ما الغاز الذي نتنفسه للبقاء على قيد الحياة؟\n"
-          }
-        },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1521,12 +1455,6 @@
     },
     "What is the capital of France?" : {
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : " ما هي عاصمة فرنسا؟\n"
-          }
-        },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1637,12 +1565,6 @@
     },
     "Which instrument has black and white keys?" : {
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ما الآلة التي تحتوي على مفاتيح بيضاء وسوداء؟\n"
-          }
-        },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1731,12 +1653,6 @@
     },
     "Which planet is known as the Red Planet?" : {
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ما هو الكوكب المعروف بالكوكب الأحمر؟\n"
-          }
-        },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1781,12 +1697,6 @@
     },
     "Who wrote 'Don Quixote'?" : {
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "من كتب \"دون كيشوت\"؟\n"
-          }
-        },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1809,12 +1719,6 @@
     },
     "Wow, incredible!" : {
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "واو مذهل"
-          }
-        },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1837,12 +1741,6 @@
     },
     "You nailed it!" : {
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "لقد ابدعت"
-          }
-        },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1865,12 +1763,6 @@
     },
     "You really shined!" : {
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "لقد تألقت حقًا"
-          }
-        },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1894,12 +1786,6 @@
     "You're a star!" : {
       "comment" : "Star message",
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "أنت نجم"
-          }
-        },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1922,12 +1808,6 @@
     },
     "You're getting better and better!" : {
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "أنت تتحسن أكثر فأكثر"
-          }
-        },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1950,12 +1830,6 @@
     },
     "You're unstoppable" : {
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "أنت لا تُوقَف"
-          }
-        },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",

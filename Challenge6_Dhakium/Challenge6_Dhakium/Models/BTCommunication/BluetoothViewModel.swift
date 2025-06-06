@@ -71,7 +71,6 @@ class BluetoothViewModel: NSObject, ObservableObject, CBCentralManagerDelegate, 
         isConnected = false
     }
 
-
     // MARK: - CBPeripheralDelegate
 
     func peripheral(_ peripheral: CBPeripheral,
