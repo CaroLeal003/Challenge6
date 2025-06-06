@@ -11,7 +11,7 @@ let onboardingTexts = [
     NSLocalizedString("Hi there! 👋\nThis app helps kids \nwho can't hear well enjoy music!", comment: ""),
     NSLocalizedString("To feel the music, you’ll need a special t-shirt!", comment: ""),
     NSLocalizedString("Don’t worry! \nYou can get the \nt-shirt later in the app.", comment: ""),
-    NSLocalizedString("Turn on Bluetooth so the t-shirt can work its magic.", comment: ""),
+    NSLocalizedString("Give access to Bluetooth so the t-shirt can work its magic.", comment: ""),
     NSLocalizedString("The t-shirt connects all by itself! Look for the icon to check if it’s ready.", comment: ""),
     NSLocalizedString("Are you ready to have fun with music?", comment: "")
 
@@ -26,12 +26,13 @@ let onboardingImages = [
     "Ihy_happy_explanation"
 ]
 
-
 struct OnboardingView: View {
+
     @State private var currentIndex = 0
     let texts = onboardingTexts
     let images = onboardingImages
     @Binding var onBoardingDone: Bool
+    @ObservedObject var bluetooth: BluetoothViewModel = .init()
     
     var body: some View {
         ZStack {
@@ -51,6 +52,8 @@ struct OnboardingView: View {
                         .multilineTextAlignment(.center)
                         .frame(width: 280)
                         .offset(x: -60, y: -95)
+                    
+                    
                 }
             }
             
@@ -74,6 +77,9 @@ struct OnboardingView: View {
                     if currentIndex < texts.count - 1 {
                         currentIndex += 1
                     }
+                    if(currentIndex == 4){
+                        bluetooth.initBluetooth()
+                    }
                 }, label: {
                     Image("forward_arrow_image")
                         .resizable()
@@ -87,7 +93,8 @@ struct OnboardingView: View {
             
             Button(action: {
                 withAnimation {
-                    onBoardingDone = true
+                    currentIndex = texts.count - 1
+                    bluetooth.initBluetooth()
                 }
             }, label: {
                 Image("skip_button_image")
@@ -102,6 +109,7 @@ struct OnboardingView: View {
             if currentIndex == texts.count - 1 {
                 Button(action: {
                     withAnimation {
+                        OnboardingManager.shared.setOnboardingSeen()
                         onBoardingDone = true
                     }
                 }, label: {

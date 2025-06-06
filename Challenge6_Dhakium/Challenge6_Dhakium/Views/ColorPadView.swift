@@ -52,7 +52,7 @@ struct ColorPadView: View {
                 }
                     Spacer()
                     
-                    Image("Ihy")
+                    Image("Ihy1")
                         .resizable()
                         .scaledToFit()
                         .frame(height: 180)

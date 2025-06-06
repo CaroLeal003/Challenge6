@@ -12,7 +12,7 @@ struct AppView: View {
     @State private var showLearn = false
     @State private var showColorPad = false
     @State private var showParentGate = false
-    @ObservedObject var bluetooth: BluetoothViewModel = .init()
+    @ObservedObject var bluetooth: BluetoothViewModel
 
     var body: some View {
         ZStack {
@@ -30,12 +30,10 @@ struct AppView: View {
             .opacity(showLearn || showColorPad ? 0 : 1)
             .animation(.easeInOut(duration: 0.5), value: showLearn || showColorPad || showParentGate)
 
-            // Learn View animada desde abajo
             LearnView(bluetooth: bluetooth, showLearn: $showLearn)
                 .offset(y: showLearn ? 0 : UIScreen.main.bounds.height)
                 .animation(.easeInOut(duration: 0.5), value: showLearn)
 
-            // ColorPad View animada desde la derecha
             ColorPadView(bluetooth: bluetooth, showColorPad: $showColorPad)
                 .offset(x: showColorPad ? 0 : UIScreen.main.bounds.width)
                 .animation(.easeInOut(duration: 0.5), value: showColorPad)

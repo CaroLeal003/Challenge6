@@ -236,7 +236,7 @@
         }
       }
     },
-    "Don’t worry! You can get the t-shirt later in the app." : {
+    "Don’t worry! \nYou can get the \nt-shirt later in the app." : {
 
     },
     "English" : {
@@ -304,6 +304,9 @@
           }
         }
       }
+    },
+    "Give access to Bluetooth so the t-shirt can work its magic." : {
+
     },
     "Great work!" : {
       "localizations" : {
@@ -399,7 +402,7 @@
         }
       }
     },
-    "Hi there! 👋\nThis app helps kids who can't hear well enjoy music!" : {
+    "Hi there! 👋\nThis app helps kids \nwho can't hear well enjoy music!" : {
 
     },
     "How many legs does a spider have?" : {
@@ -1257,9 +1260,6 @@
           }
         }
       }
-    },
-    "Turn on Bluetooth so the t-shirt can work its magic." : {
-
     },
     "Venus" : {
       "localizations" : {

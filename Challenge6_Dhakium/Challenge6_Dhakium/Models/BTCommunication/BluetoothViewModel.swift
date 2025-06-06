@@ -11,6 +11,10 @@ class BluetoothViewModel: NSObject, ObservableObject, CBCentralManagerDelegate, 
 
     override init() {
         super.init()
+        
+    }
+    
+    public func initBluetooth(){
         centralManager = CBCentralManager(delegate: self, queue: nil)
     }
 

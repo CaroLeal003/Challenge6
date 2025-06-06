@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct WinningView: View {
-    @Environment(\.dismiss) var dismiss
     
     let winningPhrases: [String] = [
         NSLocalizedString("You're a star!", comment: ""),
@@ -21,8 +20,12 @@ struct WinningView: View {
         NSLocalizedString("What a fantastic move!", comment: ""),
         NSLocalizedString("So much talent!", comment: ""),
         NSLocalizedString("That was like watching a pro!", comment: ""),
-        NSLocalizedString("You really shined!", comment: ""),]
+        NSLocalizedString("You really shined!", comment: "")]
+    
+    let images: [String] = ["Ihy1", "Ihy2"]
+    
     @State private var currentMessage: String = ""
+    @State private var currentImage: String = ""
     
     let onContinue: () -> Void
     
@@ -33,7 +36,7 @@ struct WinningView: View {
             
             VStack {
                 VStack(spacing: 0) {
-                    Image("Ihy")
+                    Image(currentImage)
                         .resizable()
                         .scaledToFit()
                         .frame(width: 300, height: 180)
@@ -46,7 +49,6 @@ struct WinningView: View {
                         .frame(height: 50)
                 }
                 Button(action: {
-                    dismiss()
                     onContinue()
                 }, label: {
                     Image("continue_button_image")
@@ -58,6 +60,9 @@ struct WinningView: View {
             .onAppear {
                 if let random = winningPhrases.randomElement() {
                     currentMessage = random
+                }
+                if let randomImage = images.randomElement() {
+                    currentImage = randomImage
                 }
             }
         }
