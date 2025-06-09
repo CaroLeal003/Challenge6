@@ -11,7 +11,7 @@ let onboardingTexts = [
     NSLocalizedString("Hi there! 👋\nThis app helps kids \nwho can't hear well enjoy music!", comment: ""),
     NSLocalizedString("To feel the music, you’ll need a special t-shirt!", comment: ""),
     NSLocalizedString("Don’t worry! \nYou can get the \nt-shirt later in the app.", comment: ""),
-    NSLocalizedString("Give access to Bluetooth so the t-shirt can work its magic.", comment: ""),
+    NSLocalizedString("Give access to Bluetooth so the t-shirt can work.\n It will receive the messages and vibrate to the note.", comment: ""),
     NSLocalizedString("The t-shirt connects all by itself! Look for the icon to check if it’s ready.", comment: ""),
     NSLocalizedString("Are you ready to have fun with music?", comment: "")
 

@@ -331,24 +331,24 @@
         }
       }
     },
-    "Give access to Bluetooth so the t-shirt can work its magic." : {
+    "Give access to Bluetooth so the t-shirt can work.\n It will receive the messages and vibrate to the note." : {
       "localizations" : {
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Permite el acceso a Bluetooth para que la camiseta haga su magia."
+            "value" : "Permite el acceso a Bluetooth para que la camiseta pueda funcionar. \nRecibirá el mensaje y vibrará con cada nota"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Active le Bluetooth pour que le t-shirt puisse faire sa magie."
+            "value" : "Activez le Bluetooth pour que le t-shirt fonctionne.\nIl recevra les messages et vibrera au signal."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Attiva il Bluetooth così la maglietta può fare la sua magia."
+            "value" : "Attiva il Bluetooth così la maglietta può funzionare.\nRiceverà i messaggi e vibrerà al ritmo della nota musicale."
           }
         }
       }
