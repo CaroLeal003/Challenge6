@@ -20,7 +20,7 @@ struct ColorPadView: View {
             ZStack {
                 Color.colorWater
                     .ignoresSafeArea()
-                    .opacity(0.61)
+                    .opacity(0.60)
                 
                 RoundedRectangle(cornerRadius: 15)
                     .fill(Color.white)

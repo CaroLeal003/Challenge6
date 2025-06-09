@@ -17,8 +17,12 @@ struct MainView: View {
                 OnboardingView(onBoardingDone: $onBoardingDone)
                     .transition(.opacity)
             } else {
+                
                 AppView(bluetooth: bluetooth)
                     .transition(.opacity)
+                    .onAppear(){
+                        bluetooth.initBluetooth()
+                    }
             }
         }
         .animation(.easeInOut(duration: 0.6), value: onBoardingDone)

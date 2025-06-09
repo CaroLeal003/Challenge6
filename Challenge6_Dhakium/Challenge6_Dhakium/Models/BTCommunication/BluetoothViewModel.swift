@@ -10,10 +10,9 @@ class BluetoothViewModel: NSObject, ObservableObject, CBCentralManagerDelegate, 
     private let targetCharacteristicUUID = CBUUID(string: "FFE1") // Es: HM-10
     
     @Published var isConnected: Bool = false
-
+    
     override init() {
         super.init()
-        
     }
     
     public func initBluetooth(){
@@ -60,8 +59,8 @@ class BluetoothViewModel: NSObject, ObservableObject, CBCentralManagerDelegate, 
     func centralManager(_ central: CBCentralManager,
                         didConnect peripheral: CBPeripheral) {
         print("Connected to \(peripheral.name ?? "device")")
-        isConnected = true
         peripheral.discoverServices([targetServiceUUID])
+        isConnected = true
     }
 
     func centralManager(_ central: CBCentralManager,
