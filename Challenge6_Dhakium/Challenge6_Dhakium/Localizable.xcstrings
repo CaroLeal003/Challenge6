@@ -331,28 +331,6 @@
         }
       }
     },
-    "Give access to Bluetooth so the t-shirt can work.\n It will receive the messages and vibrate to the note." : {
-      "localizations" : {
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Permite el acceso a Bluetooth para que la camiseta pueda funcionar. \nRecibirá el mensaje y vibrará con cada nota"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Activez le Bluetooth pour que le t-shirt fonctionne.\nIl recevra les messages et vibrera au signal."
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Attiva il Bluetooth così la maglietta può funzionare.\nRiceverà i messaggi e vibrerà al ritmo della nota musicale."
-          }
-        }
-      }
-    },
     "Great work!" : {
       "localizations" : {
         "es-419" : {
@@ -1211,24 +1189,24 @@
         }
       }
     },
-    "The t-shirt connects all by itself! Look for the icon to check if it’s ready." : {
+    "The t-shirt connects all by itself!\nLook for the icon to check if it’s ready." : {
       "localizations" : {
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La camiseta se conecta por si misma! Mira el ícono para revisar si está lista."
+            "value" : "La camiseta se conecta por si sola!\nRevisa el icono para verificar que está lista."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Le t-shirt se connecte tout seul ! Regarde l’icône pour vérifier s’il est prêt"
+            "value" : "Le t-shirt se connecte tout seul !\nRegarde l’icône Bluetooth pour voir s’il est prêt."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La maglietta si collega da sola! Cerca l’icona per vedere se è pronta."
+            "value" : "La maglietta si collega da sola!\nCerca l’icona per controllare se è pronta."
           }
         }
       }
@@ -1273,6 +1251,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Per sentire la musica, ti servirà una maglietta speciale!"
+          }
+        }
+      }
+    },
+    "To make the t-shirt work, we need Bluetooth!\nIt helps your phone talk to the t-shirt." : {
+      "localizations" : {
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para que la camiseta funcione, se necesita Bluetooth!Ayuda al teléfono a comunicarse con la camiseta."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pour que le t-shirt fonctionne, on a besoin du Bluetooth.\nIl aide ton téléphone à parler au t-shirt."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Per far funzionare la maglietta, ci serve il Bluetooth.\nAiuta il tuo telefono a parlare con la maglietta."
           }
         }
       }
@@ -1361,6 +1361,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Violino"
+          }
+        }
+      }
+    },
+    "We don’t collect any data. It’s just music and fun!" : {
+      "localizations" : {
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se colecciona ningún tipo de información. Solo es música y diversión!"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nous ne collectons aucune donnée. Juste de la musique et du fun !"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non raccogliamo nessun dato. Solo musica e divertimento!"
           }
         }
       }
@@ -1537,6 +1559,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Qual è il risultato di 7 x 6?"
+          }
+        }
+      }
+    },
+    "When you tap a note, your phone sends a tiny message.\nThe t-shirt gets it, and the right motor vibrates!" : {
+      "localizations" : {
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cuando presionas una nota, el teléfono manda pequeñas señales.\nLa camiseta las recibe y el motor correspondiente vibra."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quand tu tapes une note, ton téléphone envoie un petit message.\nLe t-shirt le reçoit et le bon moteur vibre."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quando tocchi una nota, il telefono invia un piccolo messaggio.\nLa maglietta lo riceve e il motorino giusto vibra."
           }
         }
       }
@@ -1784,7 +1828,6 @@
       }
     },
     "You're a star!" : {
-      "comment" : "Star message",
       "localizations" : {
         "es-419" : {
           "stringUnit" : {

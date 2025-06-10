@@ -11,10 +11,11 @@ let onboardingTexts = [
     NSLocalizedString("Hi there! 👋\nThis app helps kids \nwho can't hear well enjoy music!", comment: ""),
     NSLocalizedString("To feel the music, you’ll need a special t-shirt!", comment: ""),
     NSLocalizedString("Don’t worry! \nYou can get the \nt-shirt later in the app.", comment: ""),
-    NSLocalizedString("Give access to Bluetooth so the t-shirt can work.\n It will receive the messages and vibrate to the note.", comment: ""),
-    NSLocalizedString("The t-shirt connects all by itself! Look for the icon to check if it’s ready.", comment: ""),
+    NSLocalizedString("To make the t-shirt work, we need Bluetooth!\nIt helps your phone talk to the t-shirt.", comment: ""),
+    NSLocalizedString("When you tap a note, your phone sends a tiny message.\nThe t-shirt gets it, and the right motor vibrates!", comment: ""),
+    NSLocalizedString("The t-shirt connects all by itself!\nLook for the icon to check if it’s ready.", comment: ""),
+    NSLocalizedString("We don’t collect any data. It’s just music and fun!", comment: ""),
     NSLocalizedString("Are you ready to have fun with music?", comment: "")
-
 ]
 
 let onboardingImages = [
@@ -23,6 +24,8 @@ let onboardingImages = [
     "game_explanation",
     "game_explanation",
     "Ihy_happy_explanation",
+    "game_explanation",
+    "game_explanation",
     "Ihy_happy_explanation"
 ]
 
@@ -30,10 +33,14 @@ let moreImages: [String] = [
     "",
     "shirt",
     "shop_button_image",
-    "",
+    "bluetoothImage",
+    "connectionImage",
     "on",
+    "",
     ""
 ]
+
+let imageSize: [CGFloat] = [10, 200, 100, 200, 300, 100, 10, 10]
 
 struct OnboardingView: View {
 
@@ -53,7 +60,7 @@ struct OnboardingView: View {
                     Image(moreImages[currentIndex])
                         .resizable()
                         .scaledToFit()
-                        .frame(width: currentIndex == 1 ? 200 : 100, height: currentIndex == 1 ? 200 : 100)
+                        .frame(width: imageSize[currentIndex], height: imageSize[currentIndex])
                         .offset(x: -150, y: 90)
                         .shadow(radius: 2)
                     

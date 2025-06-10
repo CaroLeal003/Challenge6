@@ -257,8 +257,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Challenge6-Dhakium-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Haptihy;
-				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Allow the app to connect to bluetooth";
-				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Allow the app to access bluetooth to connect to the shirt (Data is not being collected)";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Please allow Bluetooth access to connect with the music shirt. No personal data is collected";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Please allow Bluetooth access to connect with the music shirt. No personal data is collected";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -294,8 +294,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Challenge6-Dhakium-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Haptihy;
-				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Allow the app to connect to bluetooth";
-				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Allow the app to access bluetooth to connect to the shirt (Data is not being collected)";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Please allow Bluetooth access to connect with the music shirt. No personal data is collected";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Please allow Bluetooth access to connect with the music shirt. No personal data is collected";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
