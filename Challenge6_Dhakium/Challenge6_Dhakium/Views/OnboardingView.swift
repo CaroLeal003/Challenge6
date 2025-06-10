@@ -41,7 +41,6 @@ struct OnboardingView: View {
     let texts = onboardingTexts
     let images = onboardingImages
     @Binding var onBoardingDone: Bool
-    @ObservedObject var bluetooth: BluetoothViewModel = .init()
     
     var body: some View {
         ZStack {
@@ -95,9 +94,6 @@ struct OnboardingView: View {
                     if currentIndex < texts.count - 1 {
                         currentIndex += 1
                     }
-                    if(currentIndex == 4){
-                        bluetooth.initBluetooth()
-                    }
                 }, label: {
                     Image("forward_arrow_image")
                         .resizable()
@@ -112,7 +108,6 @@ struct OnboardingView: View {
             Button(action: {
                 withAnimation {
                     currentIndex = texts.count - 1
-                    bluetooth.initBluetooth()
                 }
             }, label: {
                 Image("skip_button_image")

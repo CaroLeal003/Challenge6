@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @ObservedObject var bluetoothVM: BluetoothViewModel
+    @ObservedObject var bluetoothVM: BluetoothViewModel 
     @State private var moveUp = false
     @State private var showButtons = false
     @Binding var showLearn: Bool

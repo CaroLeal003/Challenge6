@@ -12,7 +12,7 @@ struct AppView: View {
     @State private var showLearn = false
     @State private var showColorPad = false
     @State private var showParentGate = false
-    @ObservedObject var bluetooth: BluetoothViewModel
+    @ObservedObject var bluetooth: BluetoothViewModel = .init()
 
     var body: some View {
         ZStack {

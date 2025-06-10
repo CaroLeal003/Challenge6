@@ -13,6 +13,7 @@ class BluetoothViewModel: NSObject, ObservableObject, CBCentralManagerDelegate, 
     
     override init() {
         super.init()
+        initBluetooth()
     }
     
     public func initBluetooth(){

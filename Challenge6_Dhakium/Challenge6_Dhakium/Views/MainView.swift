@@ -10,19 +10,15 @@ import SwiftUI
 struct MainView: View {
     
     @State var onBoardingDone: Bool = false
-    @ObservedObject var bluetooth: BluetoothViewModel = .init()
     var body: some View {
         ZStack {
             if !OnboardingManager.shared.shouldShowOnboarding() {
                 OnboardingView(onBoardingDone: $onBoardingDone)
                     .transition(.opacity)
             } else {
-                
-                AppView(bluetooth: bluetooth)
+                AppView()
                     .transition(.opacity)
-                    .onAppear(){
-                        bluetooth.initBluetooth()
-                    }
+                    
             }
         }
         .animation(.easeInOut(duration: 0.6), value: onBoardingDone)
