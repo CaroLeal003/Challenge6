@@ -43,13 +43,13 @@ struct ButtonPad: View {
                     Image(isActive ? note.imagePressed : note.imageUnpressed)
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 85, height: 104)
+                        .frame(width: UIDevice.isPad ? 120 : 85, height: UIDevice.isPad ? 130 : 105)
                     
                     if isDisabled {
                         Image("DisabledNote")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 85, height: 104)
+                            .frame(width: UIDevice.isPad ? 120 : 85, height: UIDevice.isPad ? 130 : 104)
                     }
                 }
                 .padding(.bottom, 20)

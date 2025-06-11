@@ -39,14 +39,14 @@ struct WinningView: View {
                     Image(currentImage)
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 300, height: 180)
+                        .frame(width: UIDevice.isPad ? 440 : 300, height: UIDevice.isPad ? 340 : 180)
                     
                     Text(currentMessage)
-                        .font(.custom("BalooTamma-Regular", size: 40))
+                        .font(.custom("BalooTamma-Regular", size: UIDevice.isPad ? 60 : 40))
                         .foregroundStyle(Color(red: 0/255, green: 61/255, blue: 152/255))
                         .multilineTextAlignment(.center)
                         .lineSpacing(0)
-                        .frame(height: 50)
+                        .frame(height: UIDevice.isPad ? 70 : 50)
                 }
                 Button(action: {
                     onContinue()
@@ -54,7 +54,7 @@ struct WinningView: View {
                     Image("continue_button_image")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 150, height: 70)
+                        .frame(width: UIDevice.isPad ? 250 : 150, height: UIDevice.isPad ? 80 : 70)
                 })
             }
             .onAppear {

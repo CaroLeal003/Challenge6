@@ -24,47 +24,44 @@ struct ColorPadView: View {
                 
                 RoundedRectangle(cornerRadius: 15)
                     .fill(Color.white)
-                    .frame(width: 709, height: 215)
-                    .padding(.bottom, 120)
+                    .frame(width: UIDevice.isPad ? 1000 : 709, height: UIDevice.isPad ? 450 : 215)
+                    .padding(.bottom, UIDevice.isPad ? 100 : 120)
                 
                 HStack {
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 20)
-                        .fill(Color.white)
-                        .frame(width: 350, height: 140)
-
                     if let activeNote = activeNote {
                         WaveView(
                             waveColor: activeNote.color,
                             frequency: activeNote.frequencyWave,
                             strength: $strength
                         )
-                        .frame(width: 340, height: 120)
+                        .frame(width: UIDevice.isPad ? 475 : 340, height: UIDevice.isPad ? 200 : 120)
                         .padding()
                     } else if !hasPressed {
                         Text("This is a free play mode\nExplore your creativity and create something amazing!")
-                            .font(.custom("BalooTamma-Regular", size: 25))
+                            .font(.custom("BalooTamma-Regular", size: UIDevice.isPad ? 35 : 25))
                             .foregroundStyle(Color(red: 0/255, green: 61/255, blue: 152/255))
                             .multilineTextAlignment(.center)
                             .transition(.opacity)
                             .animation(.easeInOut(duration: 0.4), value: hasPressed)
+                            .frame(width: UIDevice.isPad ? 500 : 340)
                     }
-                }
+                    
                     Spacer()
                     
                     Image("Ihy1")
                         .resizable()
                         .scaledToFit()
-                        .frame(height: 180)
+                        .frame(height: UIDevice.isPad ? 600 : 180)
                 }
                 .padding(.bottom, 120)
-                .frame(width: 600)
+                .frame(width: UIDevice.isPad ? 950 : 600)
+                .padding(.leading, UIDevice.isPad ? 100 : 0)
                 
                 ZStack {
                     Image("RythmGameRectangle")
                         .resizable()
                         .ignoresSafeArea()
-                        .frame(height: 160)
+                        .frame(width: UIDevice.isPad ? 1200 : 809, height: UIDevice.isPad ? 180 : 160)
                     
                     ButtonPad(
                         bluetooth: bluetooth,
@@ -83,7 +80,7 @@ struct ColorPadView: View {
                     )
                     .frame(height: 122)
                 }
-                .padding(.top, 275)
+                .padding(.top, UIDevice.isPad ? 670 : 275)
                 
                 Button(action: {
                     showColorPad = false
@@ -91,9 +88,9 @@ struct ColorPadView: View {
                     Image("backward_arrow_image")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 40)
+                        .frame(width: UIDevice.isPad ? 60 : 40)
                 })
-                .offset(x: -380, y: -140)
+                .offset(x: UIDevice.isPad ? -550 : -380, y: UIDevice.isPad ? -290 : -140)
             }
             .onChange(of: showColorPad) { _, _ in
                 activeNote = nil

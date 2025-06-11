@@ -40,33 +40,33 @@ struct RythmGameView: View {
                 
                 RoundedRectangle(cornerRadius: 15)
                     .fill(Color.white)
-                    .frame(width: 709, height: 215)
-                    .padding(.bottom, 120)
+                    .frame(width: UIDevice.isPad ? 1000 : 709, height: UIDevice.isPad ? 450 : 215)
+                    .padding(.bottom, UIDevice.isPad ? 100 : 120)
                 
-                VStack(spacing: 20) {
+                VStack(spacing: UIDevice.isPad ? 50 : 20) {
                     Rectangle()
                         .fill(Color.gray)
-                        .frame(width: 709, height: 5)
+                        .frame(width: UIDevice.isPad ? 1000 : 709, height: 5)
                         .opacity(0.3)
                     
                     Rectangle()
                         .fill(Color.gray)
-                        .frame(width: 709, height: 5)
+                        .frame(width: UIDevice.isPad ? 1000 : 709, height: 5)
                         .opacity(0.3)
                     
                     Rectangle()
                         .fill(Color.gray)
-                        .frame(width: 709, height: 5)
+                        .frame(width: UIDevice.isPad ? 1000 : 709, height: 5)
                         .opacity(0.3)
                     
                     Rectangle()
                         .fill(Color.gray)
-                        .frame(width: 709, height: 5)
+                        .frame(width: UIDevice.isPad ? 1000 : 709, height: 5)
                         .opacity(0.3)
                     
                     Rectangle()
                         .fill(Color.gray)
-                        .frame(width: 709, height: 5)
+                        .frame(width: UIDevice.isPad ? 1000 : 709, height: 5)
                         .opacity(0.3)
                 }
                 .padding(.bottom, 120)
@@ -76,14 +76,14 @@ struct RythmGameView: View {
                     
                     HStack {
                         RythmGameBarsView(game: game, progresses: progresses, scrollOffset: $scrollOffset)
-                            .frame(width: 709, height: 173)
+                            .frame(width: UIDevice.isPad ? 1000 : 709, height: UIDevice.isPad ? 743 : 173)
                     }
                     
                     ZStack {
                         Image("RythmGameRectangle")
                             .resizable()
                             .ignoresSafeArea()
-                            .frame(height: 160)
+                            .frame(width: UIDevice.isPad ? 1200 : 809, height: UIDevice.isPad ? 180 : 160)
                         
                         ButtonPad(
                             bluetooth: bluetooth,
@@ -102,9 +102,7 @@ struct RythmGameView: View {
                         )
                         .frame(height: 122)
                     }
-                    .padding(.top, 275)
-                
-
+                    .padding(.top, UIDevice.isPad ? 670 : 275)
                 
                 Button(action: {
                     onDismiss()
@@ -112,9 +110,9 @@ struct RythmGameView: View {
                     Image("backward_arrow_image")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 40)
+                        .frame(width: UIDevice.isPad ? 60 : 40)
                 })
-                .offset(x: -380, y: -140)
+                .offset(x: UIDevice.isPad ? -550 : -380, y: UIDevice.isPad ? -290 : -140)
                 
                 if didWin {
                     ZStack {
@@ -123,7 +121,7 @@ struct RythmGameView: View {
                             .opacity(0.5)
                         
                         WinningView(onContinue: onWinAndDismiss)
-                            .frame(width: 700, height: 350)
+                            .frame(width: UIDevice.isPad ? 1000 : 700, height: UIDevice.isPad ? 550 : 350)
                             .cornerRadius(20)
                     }
                 }
@@ -135,7 +133,7 @@ struct RythmGameView: View {
                             .opacity(0.5)
                         
                         GameExplanationView(closeExplanation: $closeExplanation)
-                            .frame(width: 700, height: 350)
+                            .frame(width: UIDevice.isPad ? 1000 : 700, height: UIDevice.isPad ? 550 : 350)
                             .cornerRadius(20)
                     }
                 }

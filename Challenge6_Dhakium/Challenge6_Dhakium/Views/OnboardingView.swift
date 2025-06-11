@@ -60,22 +60,22 @@ struct OnboardingView: View {
                     Image(moreImages[currentIndex])
                         .resizable()
                         .scaledToFit()
-                        .frame(width: imageSize[currentIndex], height: imageSize[currentIndex])
-                        .offset(x: -150, y: 90)
+                        .frame(width: UIDevice.isPad ? imageSize[currentIndex] + 80 : imageSize[currentIndex], height: UIDevice.isPad ? imageSize[currentIndex] + 80 : imageSize[currentIndex])
+                        .offset(x: UIDevice.isPad ? -200 : -150, y:  UIDevice.isPad ? 150 : 90)
                         .shadow(radius: 2)
                     
                     
                     Image(images[currentIndex])
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 430)
+                        .frame(width: UIDevice.isPad ? 800 : 430)
                     
                     Text(texts[currentIndex])
-                        .font(.custom("BalooTamma-Regular", size: 18))
+                        .font(.custom("BalooTamma-Regular", size: UIDevice.isPad ? 35 : 18))
                         .foregroundStyle(Color(red: 0/255, green: 61/255, blue: 152/255))
                         .multilineTextAlignment(.center)
-                        .frame(width: 280)
-                        .offset(x: -60, y: -95)
+                        .frame(width: UIDevice.isPad ? 600 : 280)
+                        .offset(x: UIDevice.isPad ? -100 : -60, y: UIDevice.isPad ? -170 : -95)
                     
                     
                 }
@@ -90,7 +90,7 @@ struct OnboardingView: View {
                     Image("backward_arrow_image")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 50)
+                        .frame(width: UIDevice.isPad ? 70 : 50)
                 })
                 .disabled(currentIndex == 0)
                 .opacity(currentIndex == 0 || currentIndex == texts.count - 1 ? 0 : 1)
@@ -105,12 +105,12 @@ struct OnboardingView: View {
                     Image("forward_arrow_image")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 50)
+                        .frame(width: UIDevice.isPad ? 70 : 50)
                 })
                 .disabled(currentIndex == texts.count - 1)
                 .opacity(currentIndex == texts.count - 1 ? 0 : 1)
             }
-            .frame(width: 720)
+            .frame(width: UIDevice.isPad ? 1100 : 720)
             
             Button(action: {
                 withAnimation {
@@ -120,9 +120,9 @@ struct OnboardingView: View {
                 Image("skip_button_image")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 90)
+                    .frame(width: UIDevice.isPad ? 150 : 90)
             })
-            .offset(x: 300, y: -130)
+            .offset(x: UIDevice.isPad ? 450 : 300, y: UIDevice.isPad ? -300 : -130)
             .disabled(currentIndex == texts.count - 1)
             .opacity(currentIndex == texts.count - 1 ? 0 : 1)
             
@@ -136,9 +136,9 @@ struct OnboardingView: View {
                     Image("start_button_image")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 120)
+                        .frame(width: UIDevice.isPad ? 150 : 120)
                 })
-                .offset(x: -50, y: 120)
+                .offset(x: UIDevice.isPad ? -100 : -50, y: UIDevice.isPad ? 180 : 120)
             }
         }
     }

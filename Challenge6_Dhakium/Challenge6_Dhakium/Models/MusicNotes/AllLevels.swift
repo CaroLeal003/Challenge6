@@ -29,10 +29,10 @@ extension Level {
                 RythmGame(
                     level: 1,
                     allBars: [
-                        NoteBarConfig(duration: 70, color: .colorDarkRed, name: "do", verticalOffset: -11),
-                        NoteBarConfig(duration: 90, color: .colorDarkRed, name: "do", verticalOffset: -11),
-                        NoteBarConfig(duration: 70, color: .colorDarkRed, name: "do", verticalOffset: -11),
-                        NoteBarConfig(duration: 90, color: .colorDarkRed, name: "do", verticalOffset: -11)
+                        NoteBarConfig(duration: 70, color: .colorDarkRed, name: "do", verticalOffset: UIDevice.isPad ? -93 : -11),
+                        NoteBarConfig(duration: 90, color: .colorDarkRed, name: "do", verticalOffset: UIDevice.isPad ? -93 : -11),
+                        NoteBarConfig(duration: 70, color: .colorDarkRed, name: "do", verticalOffset: UIDevice.isPad ? -93 : -11),
+                        NoteBarConfig(duration: 90, color: .colorDarkRed, name: "do", verticalOffset: UIDevice.isPad ? -93 : -11)
                     ],
                     disabledNotes: ["NOTE_Re", "NOTE_Mi", "NOTE_Fa", "NOTE_Sol", "NOTE_La", "NOTE_Si", "NOTE_Do"],
                     lastNoteValueOff: "01000"
@@ -55,12 +55,11 @@ extension Level {
                 RythmGame(
                     level: 2,
                     allBars: [
-                        NoteBarConfig(duration: 80, color: .colorOrange, name: "Re", verticalOffset: -1),
-                        NoteBarConfig(duration: 90, color: .colorDarkRed, name: "do", verticalOffset: -11),
-                        NoteBarConfig(duration:  50, color: .colorOrange, name: "Re", verticalOffset: -1),
-                        NoteBarConfig(duration:  50, color: .colorOrange, name: "Re", verticalOffset: -1),
-                        NoteBarConfig(duration: 70, color: .colorDarkRed, name: "do", verticalOffset: -11),
-
+                        NoteBarConfig(duration: 80, color: .colorOrange, name: "Re", verticalOffset: UIDevice.isPad ? -73 : -1),
+                        NoteBarConfig(duration: 90, color: .colorDarkRed, name: "do", verticalOffset: UIDevice.isPad ? -93 : -11),
+                        NoteBarConfig(duration: 50, color: .colorOrange, name: "Re", verticalOffset: UIDevice.isPad ? -73 : -1),
+                        NoteBarConfig(duration: 50, color: .colorOrange, name: "Re", verticalOffset: UIDevice.isPad ? -73 : -1),
+                        NoteBarConfig(duration: 70, color: .colorDarkRed, name: "do", verticalOffset: UIDevice.isPad ? -93 : -11),
                     ],
                     disabledNotes: ["NOTE_Mi", "NOTE_Fa", "NOTE_Sol", "NOTE_La", "NOTE_Si", "NOTE_Do"],
                     lastNoteValueOff: "01000"
@@ -83,14 +82,13 @@ extension Level {
                 RythmGame(
                     level: 3,
                     allBars: [
-                        NoteBarConfig(duration: 70, color: .colorYellow, name: "Mi", verticalOffset: 10),
-                        NoteBarConfig(duration: 70, color: .colorOrange, name: "Re", verticalOffset: -1),
-                        NoteBarConfig(duration: 70, color: .colorDarkRed, name: "do", verticalOffset: -11),
-                        NoteBarConfig(duration: 70, color: .colorOrange, name: "Re", verticalOffset: -1),
-                        NoteBarConfig(duration: 90, color: .colorYellow, name: "Mi", verticalOffset: 10),
-                        NoteBarConfig(duration: 90, color: .colorYellow, name: "Mi", verticalOffset: 10),
-                        NoteBarConfig(duration: 90, color: .colorYellow, name: "Mi", verticalOffset: 10),
-
+                        NoteBarConfig(duration: 70, color: .colorYellow, name: "Mi", verticalOffset: UIDevice.isPad ? -50 : 10),
+                        NoteBarConfig(duration: 70, color: .colorOrange, name: "Re", verticalOffset: UIDevice.isPad ? -73 : -1),
+                        NoteBarConfig(duration: 70, color: .colorDarkRed, name: "do", verticalOffset: UIDevice.isPad ? -93 : -11),
+                        NoteBarConfig(duration: 70, color: .colorOrange, name: "Re", verticalOffset: UIDevice.isPad ? -73 : -1),
+                        NoteBarConfig(duration: 90, color: .colorYellow, name: "Mi", verticalOffset: UIDevice.isPad ? -50 : 10),
+                        NoteBarConfig(duration: 90, color: .colorYellow, name: "Mi", verticalOffset: UIDevice.isPad ? -50 : 10),
+                        NoteBarConfig(duration: 90, color: .colorYellow, name: "Mi", verticalOffset: UIDevice.isPad ? -50 : 10),
                     ],
                     disabledNotes: ["NOTE_Fa", "NOTE_Sol", "NOTE_La", "NOTE_Si", "NOTE_Do"],
                     lastNoteValueOff: "03000"
@@ -113,15 +111,13 @@ extension Level {
                 RythmGame(
                     level: 4,
                     allBars: [
-                        NoteBarConfig(duration: 80, color: .colorGreen, name: "Fa", verticalOffset: 23),
-                        NoteBarConfig(duration: 80, color: .colorDarkRed, name: "do", verticalOffset: -11),
-                        NoteBarConfig(duration: 80, color: .colorGreen, name: "Fa", verticalOffset: 23),
-                        NoteBarConfig(duration: 60, color: .colorDarkRed, name: "do", verticalOffset: -11),
-                        NoteBarConfig(duration: 60, color: .colorOrange, name: "Re", verticalOffset: -1),
-                        NoteBarConfig(duration: 60, color: .colorYellow, name: "Mi", verticalOffset: 10),
-                        NoteBarConfig(duration: 80, color: .colorGreen, name: "Fa", verticalOffset: 23),
-                        
-
+                        NoteBarConfig(duration: 80, color: .colorGreen, name: "Fa", verticalOffset: UIDevice.isPad ? -23 : 23),
+                        NoteBarConfig(duration: 80, color: .colorDarkRed, name: "do", verticalOffset : UIDevice.isPad ? -93 : -11),
+                        NoteBarConfig(duration: 80, color: .colorGreen, name: "Fa", verticalOffset : UIDevice.isPad ? -23 : 23),
+                        NoteBarConfig(duration: 60, color: .colorDarkRed, name: "do", verticalOffset : UIDevice.isPad ? -93 : -11),
+                        NoteBarConfig(duration: 60, color: .colorOrange, name: "Re", verticalOffset: UIDevice.isPad ? -73: -1),
+                        NoteBarConfig(duration: 60, color: .colorYellow, name: "Mi", verticalOffset: UIDevice.isPad ? -50: 10),
+                        NoteBarConfig(duration: 80, color: .colorGreen, name: "Fa", verticalOffset:UIDevice.isPad ? -23 : 23),
                     ],
                     disabledNotes: ["NOTE_Sol", "NOTE_La", "NOTE_Si", "NOTE_Do"],
                     lastNoteValueOff: "04000"
@@ -144,13 +140,12 @@ extension Level {
                 RythmGame(
                     level: 5,
                     allBars: [
-                        NoteBarConfig(duration: 70, color: .colorBlue, name: "Sol", verticalOffset: 36),
-                        NoteBarConfig(duration: 70, color: .colorGreen, name: "Fa", verticalOffset: 23),
-                        NoteBarConfig(duration: 70, color: .colorYellow, name: "Mi", verticalOffset: 10),
-                        NoteBarConfig(duration: 100, color: .colorBlue, name: "Sol", verticalOffset: 36),
-                        NoteBarConfig(duration: 100, color: .colorYellow, name: "Mi", verticalOffset: 10),
-                        NoteBarConfig(duration: 100, color: .colorBlue, name: "Sol", verticalOffset: 36),
-
+                        NoteBarConfig(duration: 70, color: .colorBlue, name: "Sol", verticalOffset: UIDevice.isPad ? 8 : 36),
+                        NoteBarConfig(duration: 70, color: .colorGreen, name: "Fa", verticalOffset: UIDevice.isPad ? -23 : 23),
+                        NoteBarConfig(duration: 70, color: .colorYellow, name: "Mi", verticalOffset: UIDevice.isPad ? -50 : 10),
+                        NoteBarConfig(duration: 100, color: .colorBlue, name: "Sol", verticalOffset: UIDevice.isPad ? 8 : 36),
+                        NoteBarConfig(duration: 100, color: .colorYellow, name: "Mi", verticalOffset: UIDevice.isPad ? -50 : 10),
+                        NoteBarConfig(duration: 100, color: .colorBlue, name: "Sol", verticalOffset: UIDevice.isPad ? 8 : 36),
                     ],
                     disabledNotes: ["NOTE_La", "NOTE_Si", "NOTE_Do"],
                     lastNoteValueOff: "05000"
@@ -173,14 +168,13 @@ extension Level {
                 RythmGame(
                     level: 6,
                     allBars: [
-                        NoteBarConfig(duration: 60, color: .colorPurple, name: "La", verticalOffset: 48),
-                        NoteBarConfig(duration: 60, color: .colorBlue, name: "Sol", verticalOffset: 36),
-                        NoteBarConfig(duration: 60, color: .colorGreen, name: "Fa", verticalOffset: 23),
-                        NoteBarConfig(duration: 60, color: .colorOrange, name: "Re", verticalOffset: -1),
-                        NoteBarConfig(duration: 80, color: .colorBlue, name: "Sol", verticalOffset: 36),
-                        NoteBarConfig(duration: 100, color: .colorPurple, name: "La", verticalOffset: 48),
-                        NoteBarConfig(duration: 100, color: .colorPurple, name: "La", verticalOffset: 48),
-
+                        NoteBarConfig(duration: 60, color: .colorPurple, name: "La", verticalOffset: UIDevice.isPad ? 33 : 48),
+                        NoteBarConfig(duration: 60, color: .colorBlue, name: "Sol", verticalOffset: UIDevice.isPad ? 8 : 36),
+                        NoteBarConfig(duration: 60, color: .colorGreen, name: "Fa", verticalOffset: UIDevice.isPad ? -23 : 23),
+                        NoteBarConfig(duration: 60, color: .colorOrange, name: "Re", verticalOffset: UIDevice.isPad ? -73 : -1),
+                        NoteBarConfig(duration: 80, color: .colorBlue, name: "Sol", verticalOffset: UIDevice.isPad ? 8 : 36),
+                        NoteBarConfig(duration: 100, color: .colorPurple, name: "La", verticalOffset: UIDevice.isPad ? 33 : 48),
+                        NoteBarConfig(duration: 100, color: .colorPurple, name: "La", verticalOffset: UIDevice.isPad ? 33 : 48),
                     ],
                     disabledNotes: ["NOTE_Si", "NOTE_Do"],
                     lastNoteValueOff: "06000"
@@ -205,13 +199,13 @@ extension Level {
                     level: 7,
                     allBars: [
                         NoteBarConfig(duration: 60, color: .colorPink, name: "Si", verticalOffset: 61),
-                        NoteBarConfig(duration: 60, color: .colorBlue, name: "Sol", verticalOffset: 36),
-                        NoteBarConfig(duration: 60, color: .colorYellow, name: "Mi", verticalOffset: 10),
-                        NoteBarConfig(duration: 60, color: .colorYellow, name: "Mi", verticalOffset: 10),
+                        NoteBarConfig(duration: 60, color: .colorBlue, name: "Sol", verticalOffset: UIDevice.isPad ? 8 : 36),
+                        NoteBarConfig(duration: 60, color: .colorYellow, name: "Mi", verticalOffset: UIDevice.isPad ? -50 : 10),
+                        NoteBarConfig(duration: 60, color: .colorYellow, name: "Mi", verticalOffset: UIDevice.isPad ? -50 : 10),
                         NoteBarConfig(duration: 80, color: .colorPink, name: "Si", verticalOffset: 61),
-                        NoteBarConfig(duration: 80, color: .colorBlue, name: "Sol", verticalOffset: 36),
+                        NoteBarConfig(duration: 80, color: .colorBlue, name: "Sol", verticalOffset: UIDevice.isPad ? 8 : 36),
                         NoteBarConfig(duration: 100, color: .colorPink, name: "Si", verticalOffset: 61),
-
+                        
                     ],
                     disabledNotes: ["NOTE_Do"],
                     lastNoteValueOff: "07000"
@@ -234,14 +228,14 @@ extension Level {
                 RythmGame(
                     level: 8,
                     allBars: [
-                        NoteBarConfig(duration: 90, color: .colorRed, name: "Do", verticalOffset: 73),
+                        NoteBarConfig(duration: 90, color: .colorRed, name: "Do", verticalOffset: UIDevice.isPad ? 88 : 73),
                         NoteBarConfig(duration: 90, color: .colorPink, name: "Si", verticalOffset: 61),
-                        NoteBarConfig(duration: 90, color: .colorPurple, name: "La", verticalOffset: 48),
-                        NoteBarConfig(duration: 90, color: .colorBlue, name: "Sol", verticalOffset: 36),
-                        NoteBarConfig(duration: 90, color: .colorGreen, name: "Fa", verticalOffset: 23),
-                        NoteBarConfig(duration: 90, color: .colorYellow, name: "Mi", verticalOffset: 10),
-                        NoteBarConfig(duration: 90, color: .colorOrange, name: "Re", verticalOffset: -1),
-                        NoteBarConfig(duration: 90, color: .colorDarkRed, name: "do", verticalOffset: -11),
+                        NoteBarConfig(duration: 90, color: .colorPurple, name: "La", verticalOffset: UIDevice.isPad ? 33 : 48),
+                        NoteBarConfig(duration: 90, color: .colorBlue, name: "Sol", verticalOffset: UIDevice.isPad ? 8 : 36),
+                        NoteBarConfig(duration: 90, color: .colorGreen, name: "Fa", verticalOffset: UIDevice.isPad ? -23 : 23),
+                        NoteBarConfig(duration: 90, color: .colorYellow, name: "Mi", verticalOffset: UIDevice.isPad ? -50 : 10),
+                        NoteBarConfig(duration: 90, color: .colorOrange, name: "Re", verticalOffset: UIDevice.isPad ? -73 : -1),
+                        NoteBarConfig(duration: 90, color: .colorDarkRed, name: "do", verticalOffset: UIDevice.isPad ? -93 : -11),
                     ],
                     disabledNotes: [""],
                     lastNoteValueOff: "01000"

@@ -21,22 +21,23 @@ struct NoteExplanation: View {
             Image("detail_explain_image")
                 .resizable()
                 .scaledToFit()
+                .frame(width: UIDevice.isPad ? 600 : 450)
             
             VStack {
                 Spacer()
                 Spacer()
-                
+
                 Text("Press the note to feel the vibration")
-                    .font(.custom("BalooTamma-Regular", size: 20))
+                    .font(.custom("BalooTamma-Regular", size: UIDevice.isPad ? 30 : 20))
                     .foregroundStyle(Color(red: 0/255, green: 61/255, blue: 152/255))
                 
                 ZStack {
                     WaveView(waveColor: lesson.color, frequency: lesson.frequencyWave, strength: $strength)
-                        .frame(width: 400, height: 100)
+                        .frame(width: UIDevice.isPad ? 500 : 400, height: 100)
                     
                     RoundedRectangle(cornerRadius: 20)
                         .fill(lesson.color)
-                        .frame(width: 100, height: 100)
+                        .frame(width: UIDevice.isPad ? 120 : 100, height: UIDevice.isPad ? 120 : 100)
                         .overlay(
                             Image(systemName: "music.note")
                                 .resizable()
@@ -69,7 +70,7 @@ struct NoteExplanation: View {
                 }
                 Spacer()
             }
-            .padding(.top, 35)
+            .padding(.top, UIDevice.isPad ? -100 : 35)
         }
     }
     

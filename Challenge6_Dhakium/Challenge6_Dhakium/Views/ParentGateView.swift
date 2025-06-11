@@ -22,18 +22,19 @@ struct ParentalGateView: View {
             ZStack {
                 Color.white
                     .ignoresSafeArea()
-                    .opacity(0.61)
                 
                 VStack(spacing: 40) {
                     Text("Ask your parents")
                         .font(.largeTitle)
                         .bold()
                         .multilineTextAlignment(.center)
+                        .foregroundStyle(Color.black)
                     
                     if let question = currentQuestion {
                         Text(question.question)
                             .font(.title)
                             .multilineTextAlignment(.center)
+                            .foregroundStyle(Color.black)
                         
                         LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 2), spacing: 20) {
                             ForEach(shuffledOptions, id: \.self) { option in
@@ -43,7 +44,10 @@ struct ParentalGateView: View {
                                     Text(option)
                                         .font(.title2)
                                         .bold()
-                                        .frame(maxWidth: .infinity, minHeight: 80)
+                                        .frame(
+                                            width: UIDevice.isPad ? 400 : 300,
+                                            height: UIDevice.isPad ? 200 : 90
+                                        )
                                         .background(Color.colorWater.opacity(0.7))
                                         .foregroundStyle(Color.black)
                                         .cornerRadius(12)
@@ -51,6 +55,7 @@ struct ParentalGateView: View {
                             }
                         }
                         .padding(.horizontal, 40)
+                        .frame(width: UIDevice.isPad ? 1300 : 800)
                     }
                 }
                 .padding()
@@ -82,9 +87,9 @@ struct ParentalGateView: View {
                     Image("backward_arrow_image")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 40)
+                        .frame(width: UIDevice.isPad ? 60 : 40)
                 })
-                .offset(x: -380, y: -140)
+                .offset(x: UIDevice.isPad ? -440 : -380, y: UIDevice.isPad ? -260 : -140)
             }
         }
         .navigationBarBackButtonHidden(true)

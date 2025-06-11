@@ -65,9 +65,9 @@ struct LearnView: View {
                 Image("close_button_image")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 60)
+                    .frame(width: UIDevice.isPad ? 80 : 60)
             })
-            .offset(x: 300, y: -110)
+            .offset(x: UIDevice.isPad ? 430 : 300, y: UIDevice.isPad ? -170 : -110)
             .opacity(isInGame ? 0 : 1)
             
             HStack {
@@ -77,7 +77,7 @@ struct LearnView: View {
                     Image("backward_arrow_image")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 40)
+                        .frame(width: UIDevice.isPad ? 60 : 40)
                 })
                 .opacity(counter == 0 ? 0 : 1)
                 
@@ -89,11 +89,11 @@ struct LearnView: View {
                     Image("forward_arrow_image")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 40)
+                        .frame(width: UIDevice.isPad ? 60 : 40)
                 })
                 .opacity(counter == levels.count - 1 ? 0 : 1)
             }
-            .frame(width: 720)
+            .frame(width: UIDevice.isPad ? 940 : 720)
             .opacity(isInGame ? 0 : 1)
             
             VStack {
@@ -106,7 +106,7 @@ struct LearnView: View {
                 }
                 Spacer()
             }
-            .offset(y: 30)
+            .offset(y: UIDevice.isPad ? 130 : 30)
         }
     }
 }

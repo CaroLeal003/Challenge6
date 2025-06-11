@@ -68,7 +68,7 @@ struct GameExplanationView: View {
             HStack {
                 Spacer()
                 PlayerView(videoName: "game")
-                    .frame(width: 150, height: 180)
+                    .frame(width: UIDevice.isPad ? 250 : 150, height: UIDevice.isPad ? 280 : 180)
                     .offset(y: 20)
                 
                 Spacer()
@@ -77,14 +77,14 @@ struct GameExplanationView: View {
                     Image("game_explanation")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 430)
+                        .frame(width: UIDevice.isPad ? 530 :  430)
                     
                     Text("Now we're going to play a little game!\nPress the correct button to fill in the bar")
-                        .font(.custom("BalooTamma-Regular", size: 18))
+                        .font(.custom("BalooTamma-Regular", size: UIDevice.isPad ? 25 : 18))
                         .foregroundStyle(Color(red: 0/255, green: 61/255, blue: 152/255))
                         .multilineTextAlignment(.center)
                         .frame(width: 300)
-                        .offset(x: -60, y: -85)
+                        .offset(x: -60, y: UIDevice.isPad ? -110 : -85)
                 }
                 Spacer()
             }
@@ -96,9 +96,9 @@ struct GameExplanationView: View {
                 Image("close_button_image")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 60)
+                    .frame(width: UIDevice.isPad ? 80 : 60)
             })
-            .offset(x: 300, y: -130)
+            .offset(x: UIDevice.isPad ? 430 : 300, y: UIDevice.isPad ? -200 : -110)
         }
     }
 }

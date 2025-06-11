@@ -34,13 +34,25 @@ struct AppView: View {
                 .offset(y: showLearn ? 0 : UIScreen.main.bounds.height)
                 .animation(.easeInOut(duration: 0.5), value: showLearn)
 
-            ColorPadView(bluetooth: bluetooth, showColorPad: $showColorPad)
-                .offset(x: showColorPad ? 0 : UIScreen.main.bounds.width)
-                .animation(.easeInOut(duration: 0.5), value: showColorPad)
+            if UIDevice.isPad {
+                ColorPadView(bluetooth: bluetooth, showColorPad: $showColorPad)
+                    .offset(x: showColorPad ? 0 : UIScreen.main.bounds.width + 400)
+                    .animation(.easeInOut(duration: 0.5), value: showColorPad)
+            } else {
+                ColorPadView(bluetooth: bluetooth, showColorPad: $showColorPad)
+                    .offset(x: showColorPad ? 0 : UIScreen.main.bounds.width)
+                    .animation(.easeInOut(duration: 0.5), value: showColorPad)
+            }
+            if UIDevice.isPad {
+                ParentalGateView(showParentGate: $showParentGate)
+                    .offset(x: showParentGate ? 0 : UIScreen.main.bounds.width + 400)
+                    .animation(.easeInOut(duration: 0.5), value: showParentGate)
+            } else {
+                ParentalGateView(showParentGate: $showParentGate)
+                    .offset(x: showParentGate ? 0 : UIScreen.main.bounds.width)
+                    .animation(.easeInOut(duration: 0.5), value: showParentGate)
+            }
             
-            ParentalGateView(showParentGate: $showParentGate)
-                .offset(x: showParentGate ? 0 : UIScreen.main.bounds.width)
-                .animation(.easeInOut(duration: 0.5), value: showParentGate)
             
         }
     }

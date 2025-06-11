@@ -26,7 +26,7 @@ struct LessonDetailView: View {
         ZStack {
             RoundedRectangle(cornerRadius: 45)
                 .fill(Color.white)
-                .frame(width: 730, height: 360)
+                .frame(width: UIDevice.isPad ? 1000 : 730, height: UIDevice.isPad ? 600 : 360)
                 .shadow(radius: 5)
             
             NoteExplanation(lesson: lesson, bluetooth: bluetooth)
@@ -36,8 +36,8 @@ struct LessonDetailView: View {
             Image(lesson.imageName)
                 .resizable()
                 .scaledToFit()
-                .frame(width: 180, height: 100)
-                .offset(x: lesson.imageName == "SolImage" ? -220 : -230, y: -95)
+                .frame(width: UIDevice.isPad ? 280 : 180, height: UIDevice.isPad ? 170 : 100)
+                .offset(x: UIDevice.isPad ? -280 : -230, y: UIDevice.isPad ? -140 : -95)
             
             Button(action: {
                 withAnimation {
@@ -48,9 +48,9 @@ struct LessonDetailView: View {
                 Image("practice_button_image")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 160)
+                    .frame(width: UIDevice.isPad ? 190 : 160)
             })
-            .offset(x: 250, y: 113)
+            .offset(x: UIDevice.isPad ? 380 : 250, y: UIDevice.isPad ? 160 : 113)
             
         }
         .ignoresSafeArea()

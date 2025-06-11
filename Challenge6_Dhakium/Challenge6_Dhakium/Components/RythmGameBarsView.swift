@@ -14,7 +14,7 @@ struct RythmGameBarsView: View {
 
     var body: some View {
         RythmGameBars(scrollOffset: $scrollOffset) {
-            HStack(spacing: 16) {
+            HStack(spacing: 30) {
                 ForEach(Array(game.allBars.enumerated()), id: \.1.id) { index, bar in
                     ZStack {
                         GameBar(progress: progresses[index], color: bar.color, totalWidth: bar.duration)

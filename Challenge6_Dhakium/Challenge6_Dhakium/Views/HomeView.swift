@@ -10,8 +10,8 @@ import SwiftUI
 struct HomeView: View {
     
     @ObservedObject var bluetoothVM: BluetoothViewModel 
-    @State private var moveUp = false
-    @State private var showButtons = false
+    @State private var moveUp = true
+    @State private var showButtons = true
     @Binding var showLearn: Bool
     @Binding var showColorPad: Bool
     @Binding var showParentGate: Bool
@@ -22,7 +22,7 @@ struct HomeView: View {
                 Image("Haptihy")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: moveUp ? 500 : 800)
+                    .frame(width: moveUp ? UIDevice.isPad ? 800 : 500 : 800)
                     .offset(y: moveUp ? 40 : 120)
                     .animation(.easeInOut(duration: 1), value: moveUp)
                 
@@ -36,7 +36,7 @@ struct HomeView: View {
                             Image("game_button_image")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: 140, height: 120)
+                                .frame(width: UIDevice.isPad ? 200 : 140, height: 120)
                                 .shadow(radius: 5)
                                 .padding(.bottom, 30)
                         }
@@ -49,7 +49,7 @@ struct HomeView: View {
                             Image("learn_button_image")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: 180, height: 170)
+                                .frame(width: UIDevice.isPad ? 240 : 180, height: 170)
                                 .shadow(radius:4)
                         }
                     })
@@ -61,7 +61,7 @@ struct HomeView: View {
                             Image("shop_button_image")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: 140, height: 120)
+                                .frame(width: UIDevice.isPad ? 200 : 140, height: 120)
                                 .shadow(radius: 5)
                                 .padding(.bottom, 30)
                         }
@@ -73,8 +73,8 @@ struct HomeView: View {
             Image(bluetoothVM.isConnected ? "on" : "off")
                 .resizable()
                 .scaledToFit()
-                .frame(width: 40, height: 40)
-                .offset(x: 350, y: -140)
+                .frame(width: UIDevice.isPad ? 70 : 40, height: UIDevice.isPad ? 70 : 40)
+                .offset(x: UIDevice.isPad ? 450 : 350, y: UIDevice.isPad ? -300 : -140)
                 .opacity(showButtons ? 1 : 0)
                 .animation(.easeIn(duration: 1), value: showButtons)
                 
